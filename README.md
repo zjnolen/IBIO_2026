@@ -1,7 +1,7 @@
 
-# **IBIO Molecular Phylogenetics 2024**
+# **IBIO Molecular Phylogenetics 2026**
 
-Teachers Jadranka Rota, Niklas Wahlberg, Etka Yapar, and Sridhar Halali
+Teachers Jadranka Rota, Niklas Wahlberg, Zachary Nolen, and Emma Kärrnäs
 
 ## **Introduction**
 
