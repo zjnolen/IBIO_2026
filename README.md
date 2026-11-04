@@ -11,32 +11,15 @@ In this intensive course we will introduce the basics of molecular phylogenetics
 
 **Location:** Maskrosen, Ekologihuset, Lund University, Sölvegatan 37, 223 62 Lund
 
-<!--
-| Hours\Days | April 25 | April 26 | April 29 | May 2 |
-| --- | ---- | ---- | ---- | ---- |
-| 9:00-10:30 | Module outline, relevant databases (BOLD, GenBank, Darwin Tree of Life (NW, JR) | Tutorials 3-5 (JR, EY, NW) | Tutorial 6 (JR, EY) | Tutorial 8 (SH) |
-| 10:30-12:00 | Introduction to alignments, different file formats (NW) | Tutorial 3-5 (cont.) (JR, EY, NW) | Tutorial 6 (JR, EY, NW) | Tutorial 8 (SH) |
-| 12:00-13:00 | Lunch | Lunch | Lunch | Lunch |
-| 13:00-14:30 | Tutorial 1 | Tutorials 3-5 (cont.) (JR, EY, NW) |  free | Tutorial 9 (JR, EY) |
-| 14:30-16:00 | Tutorial 2 | Tutorials 3-5 (cont.) (JR, EY, NW) | free | Tutorial 9 (JR, EY) |
--->
-
-<!-- | 10:30-12:00 | Introduction to alignments, different file formats (NW) | Tutorial 3-5 (cont.) (JR, EY, NW) | Tutorial 7 (JR, EY, NW) | Tutorial 8 (SH, EY)(cont.) (SH) | -->
-
-| Hours\Days | Monday May 13 | Tuesday May 14 | Wednesday May 15 | Thursday May 16 |
+| Hours\Days | Monday Nov 16 | Tuesday Nov 17 | Wednesday Nov 18 | Thursday Nov 19 |
 | --- | ---- | ---- | ---- | ---- |
 | 9:00-10:30 | Lecture 1: Introduction (NW) | Lecture 3: Introduction to model based methods (JR) | Lecture 5: Properties of DNA data and assessing robustness of hypotheses (JR) | Lecture 7: Using phylogenies - historical biogeography (JR) |
 | 10:30-11:00 | Fika | Fika | Fika | Fika |
 | 11:00-12:00 | Lecture 2: Understanding trees and alignments (JR) | Lecture 4: Statistical frameworks for modelling in phylogenetics (ML and Bayesian) (NW) | Lecture 6: Timing of Divergence (NW) | Lecture 8: Using phylogenies - comparative methods (SH) |
 | 12:00-13:00 | Lunch | Lunch | Lunch | Lunch |
-| 13:00-14:30 | Tutorial 1 (EY, JR, NW) | Tutorial 3-5 (EY, JR, NW) | Tutorial 6 (EY, JR, NW) | Tutorial 9 (EY, JR) |
+| 13:00-14:30 | Tutorial: Mitochondrial and nuclear genome assembly | Tutorial: Gene annotation (cont.) + alignment | Tutorial: Tree inference - gene trees, concatenated trees, and MSC (cont.) | Tutorial: Divergence timing |
 | 14:30-15:00 | Fika | Fika | Fika | Fika |
-| 15:00-16:30 | Tutorial 2 (EY, JR, NW) | Tutorial 3-5 (EY, JR, NW) | Tutorial 7-8 (EY, JR, NW) | Tutorial 10 (SH, EY) |
-
-<!--  -->
-
-
-
+| 15:00-16:30 | Tutorial: Gene annotation | Tutorial: Model selection | Tutorial: Tree inference - gene trees, concatenated trees, and MSC (cont.) | Tutorial: TBD |
 
 ## **Index**
 
