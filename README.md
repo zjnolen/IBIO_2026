@@ -41,6 +41,7 @@ Here you will find the files we create during the course. (If at some point you 
 Here are deposited the instructions for the assignments and exercises. Use the list below to follow them in order:
 
 (0) [Prepare your working directory and install Conda](./Tutorials/PreparationAndInstalls/README.md)
+(1) [Genome assembly](./Tutorials/Assembly/README.md)
 
 ### Programs used in the tutorials
 
@@ -50,7 +51,7 @@ Here you can find a list of the programs we are going to use and links to where 
     - **Visual Studio Code, Zed, Sublime Text** for all operating systems
    	- **TextWrangler** (older versions) or **BBEdit** for Mac users
    	- **Notepad++** for Windows users
-   	- Built-in text editors for GNOME and KDE desktops on Linux
+   	- Built-in text editors for Linux
 
  <!-- * [MAFFT](https://mafft.cbrc.jp/alignment/software/) -->
 
