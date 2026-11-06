@@ -36,42 +36,21 @@ The lecture slide files can be found here.
 
 Here you will find the files we create during the course. (If at some point you are at a loss because your attempts to produce the results for the next step failed, here you can find the files you will need so you can keep up with the class.)
 
-
 ### [Tutorials](./Tutorials/)
 
-Here are deposited the instructions for the assignments and exercises.
+Here are deposited the instructions for the assignments and exercises. Use the list below to follow them in order:
 
+(0) [Prepare your working directory and install Conda](./Tutorials/PreparationAndInstalls/README.md)
 
- (1) [Learn to generate datasets](./Tutorials/DatasetManipulation/)
-	
- (2) [Align the gene markers](./Tutorials/Alignments/)
- 
- (3) [Select the best evolutionary model and partitioning scheme](./Tutorials/ModelSelection/)
- 
- (4) [Bayesian methods](./Tutorials/BayesianInference/)
- 
- (5) [Maximum likelihood methods](./Tutorials/MaximumLikelihood/)
- 
- (6) [Timing of divergence analysis](./Tutorials/TimingDivergence/)
- 
- (7) [Tree manipulation](./Tutorials/TreeManipulation/)
- 
- (8) [Gene tree/species tree analysis](./Tutorials/ASTRAL/)
- 
- (9) [Historical biogeography](./Tutorials/Biogeography/)
- 
- (10) [Comparative analysis](./Tutorials/ComparativeAnalysis/)
-
-
-
-### [Programs used in the tutorials](./Software/)
+### Programs used in the tutorials
 
 Here you can find a list of the programs we are going to use and links to where you can download them.
  
- * **Text Editors:**
+ * **Text Editors** (suggestions to look into for your own machine)
+    - **Visual Studio Code, Zed, Sublime Text** for all operating systems
    	- **TextWrangler** (older versions) or **BBEdit** for Mac users
    	- **Notepad++** for Windows users
-   	- **Linux** users not covered
+   	- Built-in text editors for GNOME and KDE desktops on Linux
 
  <!-- * [MAFFT](https://mafft.cbrc.jp/alignment/software/) -->
 
