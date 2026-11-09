@@ -17,9 +17,9 @@ In this intensive course we will introduce the basics of molecular phylogenetics
 | 10:30-11:00 | Fika | Fika | Fika | Fika |
 | 11:00-12:00 | Lecture 2: Understanding trees and alignments (JR) | Lecture 4: Statistical frameworks for modelling in phylogenetics (ML and Bayesian) (NW) | Lecture 6: Timing of Divergence (NW) | Lecture 8: Using phylogenies - comparative methods (SH) |
 | 12:00-13:00 | Lunch | Lunch | Lunch | Lunch |
-| 13:00-14:30 | Tutorial: Mitochondrial and nuclear genome assembly | Tutorial: Gene annotation (cont.) + alignment | Tutorial: Tree inference - gene trees, concatenated trees, and MSC (cont.) | Tutorial: Divergence timing |
+| 13:00-14:30 | Tutorial: Mitochondrial and nuclear genome assembly | Tutorial: Gene annotation (cont.) + alignment | Tutorial: Tree inference - gene trees, multi-species coalescent | Tutorial: Divergence timing |
 | 14:30-15:00 | Fika | Fika | Fika | Fika |
-| 15:00-16:30 | Tutorial: Gene annotation | Tutorial: Model selection | Tutorial: Tree inference - gene trees, concatenated trees, and MSC (cont.) | Tutorial: TBD |
+| 15:00-16:30 | Tutorial: Gene annotation | Tutorial: Model selection + Tree inference - ML concatenated | Tutorial: Tree inference - gene trees, multi-species coalescent (cont) + Tree Manipulation | Tutorial: TBD |
 
 ## **Index**
 
@@ -40,8 +40,9 @@ Here you will find the files we create during the course. (If at some point you 
 
 Here are deposited the instructions for the assignments and exercises. Use the list below to follow them in order:
 
-(0) [Prepare your working directory and install Conda](./Tutorials/PreparationAndInstalls/README.md)
-(1) [Genome assembly](./Tutorials/Assembly/README.md)
+- (0) [Prepare your working directory and install Conda](./Tutorials/PreparationAndInstalls/README.md)
+- (1) [Genome assembly](./Tutorials/Assembly/README.md)
+- (2) [Setting up a phylogenomic dataset](./Tutorials/GeneratingDatasets/README.md)
 
 ### Programs used in the tutorials
 
@@ -70,4 +71,3 @@ Here you can find a list of the programs we are going to use and links to where 
  * [R](https://www.r-project.org/)
  
  * [ASTER](https://github.com/chaoszhang/ASTER)
-
