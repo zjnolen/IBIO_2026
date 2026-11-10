@@ -43,6 +43,7 @@ Here are deposited the instructions for the assignments and exercises. Use the l
 - (0) [Prepare your working directory and install Conda](./Tutorials/PreparationAndInstalls/README.md)
 - (1) [Genome assembly](./Tutorials/Assembly/README.md)
 - (2) [Setting up a phylogenomic dataset](./Tutorials/GeneratingDatasets/README.md)
+- (x) [Gene tree summary methods](./Tutorials/ASTRAL/README.md)
 
 ### Programs used in the tutorials
 
@@ -58,7 +59,7 @@ Here you can find a list of the programs we are going to use and links to where 
 
  * [AliView](http://www.ormbunkar.se/aliview/downloads/)
 
- * [IQ-TREE2](http://www.iqtree.org/)
+ * [IQ-TREE3](http://www.iqtree.org/)
  
  * [MrBayes](http://nbisweden.github.io/MrBayes/)
 	
@@ -69,5 +70,7 @@ Here you can find a list of the programs we are going to use and links to where 
  * [BEAST2](http://www.beast2.org/)
  
  * [R](https://www.r-project.org/)
+   
+ * [SPAdes](https://github.com/ablab/spades)
  
- * [ASTER](https://github.com/chaoszhang/ASTER)
+ * [wASTRAL](https://github.com/chaoszhang/ASTER)
