@@ -1,7 +1,7 @@
 
 # **IBIO Molecular Phylogenetics 2026**
 
-Teachers Jadranka Rota, Niklas Wahlberg, Zachary Nolen, and Emma Kärrnäs
+Teachers Jadranka Rota, Niklas Wahlberg, Zachary Nolen, Emma Kärrnäs, Ruben Cousins-Westerberg
 
 ## **Introduction**
 
