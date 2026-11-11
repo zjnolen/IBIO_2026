@@ -9,7 +9,7 @@ In this intensive course we will introduce the basics of molecular phylogenetics
 
 ## **Program**
 
-**Location:** Maskrosen, Ekologihuset, Lund University, Sölvegatan 37, 223 62 Lund
+**Location:** Mossen, Ekologihuset, Lund University, Sölvegatan 37, 223 62 Lund
 
 | Hours\Days | Monday Nov 16 | Tuesday Nov 17 | Wednesday Nov 18 | Thursday Nov 19 |
 | --- | ---- | ---- | ---- | ---- |
