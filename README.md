@@ -42,7 +42,7 @@ Here are deposited the instructions for the assignments and exercises. Use the l
 
 - (0) [Prepare your working directory and install Conda](./Tutorials/PreparationAndInstalls/README.md)
 - (1) [Genome assembly](./Tutorials/Assembly/README.md)
-- (2) [Setting up a phylogenomic dataset](./Tutorials/GeneratingDatasets/README.md)
+- (2) [Identifying genes in your assemblies](./Tutorials/IdentifyingGenes/README.md)
 - (x) [Gene tree summary methods](./Tutorials/wASTRAL/Readme.md)
 
 ### Programs used in the tutorials
