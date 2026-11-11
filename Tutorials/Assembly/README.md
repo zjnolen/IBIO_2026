@@ -1,4 +1,4 @@
-# Tutorial: Genome assembly
+# Tutorial 1: Genome assembly
 
 ## Background
 
@@ -267,25 +267,3 @@ grep "Result status" outputs/assemblies/${ACCESSION}-mito/get_org.log.txt
 We should be able to get a circular genome out of these reads, so it should say
 so in the output there. If not, GetOrganelle has some suggested [parameter
 adjustments to try to get there](https://github.com/Kinggerm/GetOrganelle/wiki/FAQ#what-should-i-do-with-incomplete-resultbroken-assembly-graph).
-
-### Examine the assembly graph with Bandage
-
-GetOrganelle saves an organelle-specific graph as a `*.selected_graph.gfa`
-file. In the graph, nodes represent assembled sequence segments and edges
-represent connections between them. To see the files produced by your run:
-
-```bash
-ls -lh outputs/assemblies/${ACCESSION}-mito
-```
-
-Open [Bandage](https://github.com/rrwick/Bandage) on your Linux desktop:
-
-```bash
-Bandage
-```
-
-In Bandage, use **File > Load graph** to select the
-`*.selected_graph.gfa` file in `outputs/assemblies/ERR17038703-mito/`, then
-click **Draw graph**. If you have a complete circular genome, this might be
-a rather boring graph. Try exploring the nuclear graph afterwards, it is a
-`.gfa` file in the output folder from Spades.
