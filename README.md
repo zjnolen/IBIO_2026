@@ -13,9 +13,9 @@ In this intensive course we will introduce the basics of molecular phylogenetics
 
 | Hours\Days | Monday Nov 16 | Tuesday Nov 17 | Wednesday Nov 18 | Thursday Nov 19 |
 | --- | ---- | ---- | ---- | ---- |
-| 9:00-10:30 | Lecture 1: Introduction (NW) | Lecture 3: Introduction to model based methods (JR) | Lecture 5: Properties of DNA data and assessing robustness of hypotheses (JR) | Lecture 7: Using phylogenies - historical biogeography (JR) |
+| 9:00-10:30 | Lecture 1: Introduction (NW) | Lecture 3: Understanding trees and alignments (JR) | Lecture 5: Statistical frameworks for modelling in phylogenetics (ML and Bayesian) (NW) | Lecture 7: Timing of Divergence (NW) |
 | 10:30-11:00 | Fika | Fika | Fika | Fika |
-| 11:00-12:00 | Lecture 2: Understanding trees and alignments (JR) | Lecture 4: Statistical frameworks for modelling in phylogenetics (ML and Bayesian) (NW) | Lecture 6: Timing of Divergence (NW) | Lecture 8: Using phylogenies - comparative methods (SH) |
+| 11:00-12:00 | Lecture 2: Genome assembly and annotation | Lecture 4: Introduction to model based methods (JR) | Lecture 6: Properties of DNA data and assessing robustness of hypotheses (JR) | Lecture 8:  |
 | 12:00-13:00 | Lunch | Lunch | Lunch | Lunch |
 | 13:00-14:30 | Tutorial: Mitochondrial and nuclear genome assembly | Tutorial: Gene annotation (cont.) + alignment | Tutorial: Tree inference - gene trees, multi-species coalescent | Tutorial: Divergence timing |
 | 14:30-15:00 | Fika | Fika | Fika | Fika |
