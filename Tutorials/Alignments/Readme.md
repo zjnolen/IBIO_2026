@@ -1,5 +1,6 @@
 
 # **MULTIPLE SEQUENCE ALIGNMENT**
+
 You have now learned how to assemble genomes, pull sequences from those genomes, download data from the internet, and more. However, our sequences probably have different lengths, and nucleotide positions are not automatically *homologous*! To do phylogenetics our sequences need to be aligned.
 
 Here we are going to align our datasets using one of the most used aligners: MAFFT, an acronym for *multiple alignment using fast Fourier transform*
@@ -7,10 +8,11 @@ Here we are going to align our datasets using one of the most used aligners: MAF
 MAFFT is not the only aligner out there, but it is very widely used. It is made for unix-like operating systems and it offers loads of options and methods. We will use MAFFT because it is so well known and common, but we will not get into anything too complicated here.
 
 Our alignment workflow will follow two easy steps:
+
 - Alignment of the amino acid files using mafft
 - Trimming and back translation into nucleotides using trimAl
 
-Trimming is the process of removing weird gaps and uninformative sites from our alignments and should make our alignment better. Much like alignment it can be done manually or, as we will do here, automatically. 
+Trimming is the process of removing weird gaps and uninformative sites from our alignments and should make our alignment better. Much like alignment it can be done manually or, as we will do here, automatically.
 
 By aligning the amino acids and then backtranslating them to nucleotides we are producing a codon aware alignment.  This should also make for a better alignment.
 
@@ -18,7 +20,7 @@ We will need the following tools: mafft, trimAl
 
 ## Part 1. Setup
 
-You have already gotten your mitochondrial genes, but we have also prepared a set of BUSCO genes for you. Let's start by fetching those. 
+You have already gotten your mitochondrial genes, but we have also prepared a set of BUSCO genes for you. Let's start by fetching those.
 
 The BUSCOS ar sitting here: *Data/papilionoidea_10buscos.tar.gz*
 
@@ -46,6 +48,7 @@ Let's first make a directory for our alignments.
 cd Data/BUSCO
 mkdir -p aligned 
 ```
+
 Now we can run mafft. We can check out the options like so:
 
 ```bash
@@ -92,9 +95,10 @@ for i in aligned/*.aligned.faa; do
 done
 ```
 
-That should be all you need to do! But, we of course should also check our alignments. 
+That should be all you need to do! But, we of course should also check our alignments.
 
 ## Part 4. Visualising the alignments
+
 It is always good to actually look at your alignments and not jsut trust that the automatic tools did everything perfectly. Open the **Aliview** for that.
 
 *How does it look? Does it look "aligned"?* You should see something like this now (but with different taxa):
@@ -107,10 +111,10 @@ Check each of your alignments in **Aliview**. *How do the alignments look? Would
 
 <p align="center"><img src="./Aliview4.png" alt="Aliview4" width="800"></p>
 
-The majority of the changes in the nucleotide level should not change the corresponding amino acid. This are **Synonymous Mutations** as you have probably guessed. Are there some places where this is not the case? Anything that looks weird? 
+The majority of the changes in the nucleotide level should not change the corresponding amino acid. This are **Synonymous Mutations** as you have probably guessed. Are there some places where this is not the case? Anything that looks weird?
 
 You could manually remove or add some sites to make the alignments look better (using commands in **Aliview**), if you feel it is needed. However, be aware that searching for the perfect alignment can be a nearly infinite task.
 
-## Done!
+## Done
 
 If you are happy with your alignments, we are finished with this section. Now you have to figure out how to do the same thing with the mitochondrial genes!
