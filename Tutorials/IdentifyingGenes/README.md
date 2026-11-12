@@ -320,3 +320,86 @@ for b in $(echo $buscos_found); do
     done > outputs/busco/gene_fastas/${b}
 done
 ```
+
+## Annotating mitochondrial genomes with MITOS2
+
+Mitochondrial genomes provide another set of genes for phylogenetic analysis.
+Unlike the BUSCO exercise, here we will work with the mitochondrial chromosome
+from **every species** in the table above, mitochondrial genomes are only ~15 kb
+and are fast to annotate. We will use MITOS2 to predict protein-coding genes,
+tRNAs, and rRNAs in each mitochondrial genome, then prepare a dataset of the
+protein coding genes.
+
+### Download the mitochondrial chromosomes
+
+Use each species' **assembly accession** from the table to download its
+mitochondrial chromosome. For example, for *Hesperia comma*:
+
+```bash
+mkdir -p data/mitochondria
+
+datasets download genome accession GCA_905404135.1 \
+    --include genome \
+    --chromosomes MT \
+    --filename data/mitochondria/Hesperia_comma_MT.zip
+
+unzip data/mitochondria/Hesperia_comma_MT.zip -d data/mitochondria/Hesperia_comma
+```
+
+Remember, though, you can also download them all in one command if you pass the
+accessions with commas in between them, you may just have to rename them to the
+species after unzipping or initially refer to them by their accession, as NCBI
+won't include the species name in the output.
+
+`--chromosomes MT` requests the mitochondrial chromosome rather than chromosome
+1. While common, this way of referring to the mitochondria is not always the
+case, so be sure to check that you get all the assemblies you expect.
+
+Explore each extracted package with `ls` and `cd` to find its genomic FASTA
+file. Open the file and check that it contains one mitochondrial sequence:
+there should be one FASTA header, beginning with `>`. Keep track of which
+FASTA belongs to each species.
+
+### Run MITOS2
+
+MITOS2 is already installed in your active conda environment, but it also needs
+a reference dataset. Use the metazoan `refseq89m` dataset from the
+[MITOS2 reference data](https://zenodo.org/records/4284483). A good place to put
+this is in your working directory in a `resources` folder. When you run the mitos
+command, give the path to the extracted refseq89m folder after `--refseqver`.
+
+Run MITOS2 on one mitochondrial FASTA at a time. Replace the input and reference
+paths below with the actual paths on your computer:
+
+```bash
+mkdir -p outputs/mitos2/Hesperia_comma
+
+runmitos \
+    --input /path/to/Hesperia_comma_mitochondrial.fna \
+    --code 5 \
+    --refseqver /path/to/refseq89m \
+    --outdir outputs/mitos2/Hesperia_comma
+```
+
+`--input` specifies the mitochondrial FASTA, `--code 5` selects the invertebrate
+mitochondrial genetic code, `--refseqver` specifies the reference dataset, and
+`--outdir` sets the output directory. MITOS2 treats the sequence as circular by
+default, which will work for all these as they are highly complete, but if you
+have an incomplete mitochondrial sequence, you can also pass `--linear`.
+
+### Explore the annotations
+
+After a run finishes, explore its output directory:
+
+```bash
+cd outputs/mitos2/Hesperia_comma
+ls
+less result.gff
+```
+
+The GFF file lists predicted features and their coordinates. Look also at
+`result.fas` and `result.faa`, which contain predicted nucleotide and protein
+sequences. Which protein-coding genes, tRNAs, and rRNAs were found? Compare the
+annotations across species: are the same genes present and in the same order?
+Remember that these are predictions; missing genes or unusual boundaries should
+be checked against the sequence and other annotations before drawing conclusions.
