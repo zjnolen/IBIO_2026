@@ -374,32 +374,81 @@ paths below with the actual paths on your computer:
 ```bash
 mkdir -p outputs/mitos2/Hesperia_comma
 
-runmitos \
-    --input /path/to/Hesperia_comma_mitochondrial.fna \
+runmitos.py \
+    --input data/mitochondria/GCA_905404135.1/chrMT.fna \
     --code 5 \
-    --refseqver /path/to/refseq89m \
+    --refdir resources \
+    --refseqver refseq89m \
     --outdir outputs/mitos2/Hesperia_comma
 ```
 
 `--input` specifies the mitochondrial FASTA, `--code 5` selects the invertebrate
-mitochondrial genetic code, `--refseqver` specifies the reference dataset, and
-`--outdir` sets the output directory. MITOS2 treats the sequence as circular by
-default, which will work for all these as they are highly complete, but if you
-have an incomplete mitochondrial sequence, you can also pass `--linear`.
+mitochondrial genetic code, `--refdir` specifies the folder you have extracted
+refseq89m to, and `--refseqdir` points it to that specific version (multiple
+refseq databases could live in that folder), and `--outdir` sets the output
+directory. MITOS2 treats the sequence as circular by default, which will work
+for all these as they are highly complete, but if you have an incomplete mitochondrial
+sequence, you can also pass `--linear`.
 
 ### Explore the annotations
 
-After a run finishes, explore its output directory:
+After a run finishes, explore the output gene sequences:
 
 ```bash
 cd outputs/mitos2/Hesperia_comma
-ls
-less result.gff
+less result.fas
+less result.faa
 ```
 
-The GFF file lists predicted features and their coordinates. Look also at
-`result.fas` and `result.faa`, which contain predicted nucleotide and protein
-sequences. Which protein-coding genes, tRNAs, and rRNAs were found? Compare the
-annotations across species: are the same genes present and in the same order?
-Remember that these are predictions; missing genes or unusual boundaries should
-be checked against the sequence and other annotations before drawing conclusions.
+You'll find in there the nucleotide and amino acid sequences for all the annotated
+genes and features. Just as described above, we will want to make a a nucleotide
+and amino acid fasta file for each of the 13 coding genes (nad3, cox3, atp6, atp8,
+cox2, cox1, nad2, nad1, cob, nad6, nad4l, nad4, nad5). These files will contain
+the sequence for that gene for each species, with the identifier as the species name,
+so `cox3.fna` might look like:
+
+```text
+>Hesperia_comma
+ATGACAAACCATAACCACCCATATCATTTAGTAGATTATAGACCATGACCTTTAACAGGA
+GCTATTGGAACTATAACTTTAGTTACTGGTATAGTAAAATGATTTCACAATTTAAATATA
+AATTTATTAATTTTAGGATATTTAATTATTATTTTAACTATATATCAATGATGACGAGAT
+ATTTGTCGAGAAGGAACTTTTCAAGGTAAACATACAACTTTTGTTTTAAAAGGATTACGA
+TGAGGTATAATTTTATTTATTATTTCTGAAATTTTTTTCTTTATTTCTTTTTTTTGAGCT
+TTTTTTCATAGTAGTCTTTCCCCAAATATTGAAATTGGATCTTCTTGACCTCCTGTAAAT
+ATTATTCCATTTAATCCTTTCCAAATTCCATTATTAAATACTATTATTTTAATTACATCT
+GGAGTAACTGTTACTTGAGCTCATCATGCTTTAATAGAGAATAATCATACTCAAACTAAA
+CATAGTTTATTAATTACTATTTTGCTAGGAATTTATTTTACTATTCTTCAAGCTTATGAA
+TATTATGAAGCACCTTTTTCTATCGCAGATAGAATTTATGGATCAACATTTTTTATAGCT
+ACAGGATTCCATGGTATTCATGTAATTATTGGAACTATTTTTTTAATAACTTGTTTTTTT
+CGACATTTATTTAATCATTTCTCAAACAAACATCACTTTGGATTTGAAGCTGCAGCATGA
+TATTGACATTTTGTTGATGTAGTTTGATTATTTCTTTATATTTCTATTTATTGATGAGGT
+AATTAA
+>Ochlodes_sylvanus
+ATGATAAATCATAATCACCCTTATCATTTAGTAGATTATAGTCCATGACCTTTAACAGGA
+GCTATTGGAACTATAACTTTAGTTACTGGAATAGTAAAATGATTTCATAATTTTAATATA
+AATTTATTAATTTTAGGATATTTAATTATTATTTTAACTATATATCAATGATGACGAGAT
+ATTTGTCGAGAAGGAACTTTTCAAGGTAAACATACAACTTTTGTTTTAAAAGGATTACAA
+TGAGGAATAATTCTATTTATTGTATCTGAAATTTTTTTTTTTTTATCTTTTTTCTGAGCA
+TTTTTTCATAGAAGACTTTCCCCAAATATTGAAATTGGATCTTCATGACCTCCTGTTAAT
+ATTATTCCATTTAATCCATTTCAAATTCCTCTATTAAATACTATTATTTTAATTACATCT
+GGAGTAACAGTTACTTGAGCTCATCATGCTTTAATAGAAAATAACTTTACACAAACTAAA
+CATAGTTTATTAATTACTATTATTTTAGGAATTTATTTTACTATTCTTCAAGCTTATGAA
+TATTATGAAGCTTCTTTTTCAATTGCAGATAGAATTTATGGCTCAACATTTTTTATAGCT
+ACTGGATTTCATGGTATTCATGTAATTATTGGAACTATTTTTTTATTAACTTGTTTTATT
+CGTCATTTATTTTATCATTTTTCAAATAAACATCATTTTGGATTTGAAGCTGCAGCATGA
+TATTGACATTTTGTTGATGTAGTTTGACTATTTTTATATATCTCTATTTATTGATGAGGT
+AATTAA
+```
+
+Once you've put together a gene, open it up in Aliview, a free
+alignment viewer you have installed:
+
+```bash
+aliview outputs/mitos2/gene_fastas/cox3.fna
+```
+
+Notice how the sequence length differs across species, though it
+may be similar in more closely related ones. The next tutorial will
+go into how we align these sequences so that we can identify
+corresponding positions across species and use their similarities
+and difference to infer their phylogenetic history.
