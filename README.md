@@ -13,7 +13,7 @@ In this intensive course we will introduce the basics of molecular phylogenetics
 
 | Hours\Days | Monday Nov 16 | Tuesday Nov 17 | Wednesday Nov 18 | Thursday Nov 19 |
 | --- | ---- | ---- | ---- | ---- |
-| 9:00-10:15 | Lecture 1: Introduction | Lecture 3: Alignment | Lecture 5: Tree inference | Lecture 7: Timing of Divergence |
+| 9:00-10:15 | Lecture 1: Introduction | Lecture 3: Alignment and tree search | Lecture 5: Maximum Likelihood | Lecture 7: Timing of Divergence |
 | 10:15-10:45 | Fika | Fika | Fika | Fika |
 | 10:45-12:00 | Lecture 2: Genome assembly and annotation | Lecture 4: Models and their selection | Lecture 6: Properties of DNA data and assessing robustness of hypotheses | Lecture 8: Gene family evolution |
 | 12:00-13:00 | Lunch | Lunch | Lunch | Lunch |
