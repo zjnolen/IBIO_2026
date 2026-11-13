@@ -1,0 +1,22 @@
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - aliview=1.33
+  - aster=1.25
+  - bioconductor-ggtree=4.0.5
+  - busco=6.1.0
+  - fastp=1.4.0
+  - figtree=1.4.4
+  - getorganelle=1.7.7.1
+  - iqtree=3.1.4
+  - mafft=7.526
+  - mitos=2.1.10
+  - ncbi-datasets-cli=18.41.1
+  - r-ape=5.8_1
+  - r-base=4.5.2
+  - r-ggplot2=4.0.3
+  - spades=4.3.0
+  - sra-tools=3.4.1
+  - trimal=1.5.1
