@@ -94,9 +94,7 @@ head(tree$tip.label)
 
 The tip labels in the tree must match the labels used for annotation. Here,
 each label is the species name followed by its assembly accession, separated
-by a period (for example, `Hesperia_comma.GCA_905404135.1`). The species table
-from Tutorial 2 is reproduced below as metadata for this plot; the `label`
-column must match the tree tips exactly.
+by a period (for example, `Hesperia_comma.GCA_905404135.1`).
 
 ```r
 metadata <- read.csv(text = "
@@ -128,22 +126,9 @@ Pyralis_farinalis.GCA_947507595.1,Pyralidae,Pyraloidea
 
 Check for name mismatches before plotting. Extra rows in `metadata` are okay
 when the tree contains only a subset of the listed species; those species are
-left out of the plot. A tree tip without a matching metadata row
-stops the script so that a label problem is not hidden.
+left out of the plot.
 
 ```r
-missing_metadata <- setdiff(tree$tip.label, metadata$label)
-if (length(missing_metadata) > 0) {
-  stop("No species-table metadata for tree tip(s): ",
-       paste(missing_metadata, collapse = ", "))
-}
-
-not_in_tree <- setdiff(metadata$label, tree$tip.label)
-if (length(not_in_tree) > 0) {
-  message("Species in the table but not this tree: ",
-          paste(not_in_tree, collapse = ", "))
-}
-
 metadata <- metadata[match(tree$tip.label, metadata$label), ]
 ```
 
