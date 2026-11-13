@@ -24,28 +24,30 @@ by picking two and downloading their reference genome assemblies:
 
 | Species | Accession | Family | Superfamily |
 | --- | --- | --- | --- |
-| Hesperia_comma | GCA_905404135.1 | Hesperiidae | Papilionoidea |
-| Ochlodes_sylvanus | GCA_905404295.2 | Hesperiidae | Papilionoidea |
-| Thymelicus_lineola | GCA_963932265.1 | Hesperiidae | Papilionoidea |
-| Aricia_agestis | GCA_944452695.1 | Lycaenidae | Papilionoidea |
-| Polyommatus_icarus | GCA_937595015.1 | Lycaenidae | Papilionoidea |
-| Scolitantides_orion | GCA_964345685.1 | Lycaenidae | Papilionoidea |
-| Euphydryas_aurinia | GCA_975146965.1 | Nymphalidae | Papilionoidea |
-| Aglais_io | GCA_905147045.1 | Nymphalidae | Papilionoidea |
-| Vanessa_atalanta | GCA_905147765.2 | Nymphalidae | Papilionoidea |
-| Graphium_eurypylus | GCA_040363725.1 | Papilionidae | Papilionoidea |
-| Iphiclides_podalirius | GCA_933534255.1 | Papilionidae | Papilionoidea |
-| Papilio_elwesi | GCA_029849275.1 | Papilionidae | Papilionoidea |
-| Anthocharis_cardamines | GCA_905404175.1 | Pieridae | Papilionoidea |
-| Colias_croceus | GCA_905220415.1 | Pieridae | Papilionoidea |
-| Pieris_napi | GCA_905475465.2 | Pieridae | Papilionoidea |
-| Macrosoma_leucophasiata | GCA_036365455.1 | Hedylidae | Papilionoidea |
-| Calephelis_nemesis | GCA_002245505.1 | Riodinidae | Papilionoidea |
-| Bombyx_mori | GCA_030269925.2 | Bombycidae | Bombycoidea |
-| Cossus_cossus | GCA_965117205.1 | Cossidae | Cossoidea |
-| Epermenia_chaerophyllella | GCA_964235415.1 | Epermeniidae | Epermenioidea |
-| Bryotropha_terrella | GCA_964059635.1 | Gelechiidae | Gelechioidea |
-| Pyralis_farinalis | GCA_947507595.1 | Pyralidae | Pyraloidea |
+| *Hesperia comma* | GCA_905404135.1 | Hesperiidae | Papilionoidea |
+| *Ochlodes sylvanus* | GCA_905404295.2 | Hesperiidae | Papilionoidea |
+| *Thymelicus lineola* | GCA_963932265.1 | Hesperiidae | Papilionoidea |
+| *Aricia agestis* | GCA_944452695.1 | Lycaenidae | Papilionoidea |
+| *Polyommatus icarus* | GCA_937595015.1 | Lycaenidae | Papilionoidea |
+| *Scolitantides orion* | GCA_964345685.1 | Lycaenidae | Papilionoidea |
+| *Euphydryas aurinia* | GCA_975146965.1 | Nymphalidae | Papilionoidea |
+| *Aglais io* | GCA_905147045.1 | Nymphalidae | Papilionoidea |
+| *Vanessa atalanta* | GCA_905147765.2 | Nymphalidae | Papilionoidea |
+| *Graphium eurypylus* | GCA_040363725.1 | Papilionidae | Papilionoidea |
+| *Iphiclides podalirius* | GCA_933534255.1 | Papilionidae | Papilionoidea |
+| *Papilio elwesi* | GCA_029849275.1 | Papilionidae | Papilionoidea |
+| *Anthocharis cardamines* | GCA_905404175.1 | Pieridae | Papilionoidea |
+| *Colias croceus* | GCA_905220415.1 | Pieridae | Papilionoidea |
+| *Pieris napi* | GCA_905475465.2 | Pieridae | Papilionoidea |
+| *Macrosoma leucophasiata* | GCA_036365455.1 | Hedylidae | Papilionoidea |
+| *Calephelis nemesis* | GCA_002245505.1 | Riodinidae | Papilionoidea |
+| *Bombyx mori* | GCA_030269925.2 | Bombycidae | Bombycoidea |
+| *Cossus cossus* | GCA_965117205.1 | Cossidae | Cossoidea |
+| *Epermenia chaerophyllella* | GCA_964235415.1 | Epermeniidae | Epermenioidea |
+| *Bryotropha terrella* | GCA_964059635.1 | Gelechiidae | Gelechioidea |
+| *Pyralis farinalis* | GCA_947507595.1 | Pyralidae | Pyraloidea |
+
+![Some of the butterfly species you will infer a phylogeny for](Butterflies.png)
 
 To find published genome assemblies, you can look for them on
 [NCBI](https://www.ncbi.nlm.nih.gov/) and [ENA](https://www.ebi.ac.uk/).
