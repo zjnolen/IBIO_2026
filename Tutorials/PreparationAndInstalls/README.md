@@ -63,36 +63,72 @@ curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mi
 bash Miniforge3-$(uname)-$(uname -m).sh
 ```
 
-Once installed, we can create an environment for this course:
-
-```bash
-conda create -n phylo
-```
-
-This will create a Conda environment with the name `phylo`. When you open
-a new terminal window, you'll need to activate this environment to use the
-software installed to it. You'll see the currently active environment in
-your terminal in parentheses. By default, your base environment activates,
-so you'll see `(base)`. Activate the `phylo` environment:
-
-```bash
-conda activate phylo
-```
-
-You should see the terminal change to say `(phylo)`. Now you're ready! In
-your working directory (`phylogenomics_course`) create a file called
-`environment.yaml` with these contents:
+Once installed, we can prepare an environment for this course. We will
+use an environment file (`environment.yaml`) to define the software to
+include in the environment, set their versions, and what repositories
+they should come from. Create an `environment.yaml` file in your working
+directory with the following contents:
 
 ```yaml
 channels:
   - conda-forge
   - bioconda
+  - nodefaults
 dependencies:
+  - aliview=1.33
+  - aster=1.25
+  - bioconductor-ggtree=4.0.5
+  - busco=6.1.0
+  - fastp=1.4.0
+  - figtree=1.4.4
+  - getorganelle=1.7.7.1
+  - iqtree=3.1.4
+  - mafft=7.526
+  - mitos=2.1.10
+  - ncbi-datasets-cli=18.41.1
+  - r-ape=5.8_1
+  - r-base=4.5.2
+  - r-ggplot2=4.0.3
+  - spades=4.3.0
+  - sra-tools=3.4.1
+  - trimal=1.5.1
 ```
 
-We will install software by adding to this file and using it to update our
-environment. At the end, we will have an environment definition that can be
-remake an environment on another machine.
+Then, you can create the environment from this file with:
+
+```bash
+conda env create -f environment.yaml -n phylo
+```
+
+This will create a Conda environment with the name `phylo` that contains
+all the software we will use in the course. When you open a new terminal
+window, you'll need to activate this environment to use the software
+installed to it. You'll see the currently active environment in your terminal
+in parentheses. By default, your base environment activates, so you'll see
+`(base)`. Activate the `phylo` environment:
+
+```bash
+conda activate phylo
+```
+
+You should see the terminal change to say `(phylo)`. Now you're ready!
+
+Putting everything you need for a project into one environment may not be
+ideal. In this case, these tools can form a compatible environment on this
+system. However, you may want to make an environment for each tool and
+activate it whenever you need the tool:
+
+```bash
+# you don't need to run this
+conda create -n spades -c conda-forge -c bioconda "spades==v4.3.0"
+```
+
+This command would create an environment named (`-n`) spades that installs
+just spades v4.3.0 and its dependencies. The `-c` options set the channels
+that you saw in the `environment.yaml` and tells conda where to look for
+the software. Bioconda is a repository of biology related software and
+conda-forge contains a wide variaty of open-source software and is added so
+that non-biology related dependencies can be grabbed (like python for spades).
 
 ## Saving your data processing as scripts
 
