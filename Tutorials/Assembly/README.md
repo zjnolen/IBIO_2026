@@ -200,7 +200,7 @@ assembly, but that we recover most of the genome, especially genic regions. Long
 likely would build us a more contiguous assembly, but for pulling out genes to
 build phylogenetic trees, we actually can get quite far with short-reads.
 
-Speaking of pulling out genes, BUSCO has kindle pulled them out and organized them
+Speaking of pulling out genes, BUSCO has kindly pulled them out and organized them
 for us. Check out the contents of the
 `outputs/busco/ERR17038703/run_fungi_odb12/busco_sequences/single_copy_busco_sequences/`
 folder. There will be three files for each complete, single-copy BUSCO in the genome:
