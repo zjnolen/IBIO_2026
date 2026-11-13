@@ -47,8 +47,6 @@ by picking two and downloading their reference genome assemblies:
 | *Bryotropha terrella* | GCA_964059635.1 | Gelechiidae | Gelechioidea |
 | *Pyralis farinalis* | GCA_947507595.1 | Pyralidae | Pyraloidea |
 
-![Some of the butterfly species you will infer a phylogeny for](Butterflies.png)
-
 To find published genome assemblies, you can look for them on
 [NCBI](https://www.ncbi.nlm.nih.gov/) and [ENA](https://www.ebi.ac.uk/).
 These two repositories mirror each other, so data on one can be found on
@@ -58,6 +56,9 @@ you don't need to know this, and instead can [search your species to see what
 reference genomes are available here](https://www.ncbi.nlm.nih.gov/datasets/genome/).
 Give it a try for one of the above and you should find the accession listed. Some
 species may have more than one assembly, but only one will be the reference assembly.
+
+![Some of the butterfly species you will infer a phylogeny for](Butterflies.png)
+*Some of the butterfly species you will infer a phylogeny for*
 
 Instead of clicking through these pages, we will download the genomes with the NCBI
 command line toolkit. You can use a species name or the assembly accession to download:
