@@ -27,15 +27,15 @@ by picking two and downloading their reference genome assemblies:
 | Species | Accession | Family | Superfamily |
 | --- | --- | --- | --- |
 | *Hesperia comma* | GCA_905404135.1 | Hesperiidae | Papilionoidea |
-| *Ochlodes sylvanus* | GCA_905404295.2 | Hesperiidae | Papilionoidea |
+| *Pyrgus malvae* | GCA_911387765.1 | Hesperiidae | Papilionoidea |
 | *Thymelicus lineola* | GCA_963932265.1 | Hesperiidae | Papilionoidea |
-| *Aricia agestis* | GCA_944452695.1 | Lycaenidae | Papilionoidea |
+| *Callophrys avis* | GCA_965178315.1 | Lycaenidae | Papilionoidea |
 | *Polyommatus icarus* | GCA_937595015.1 | Lycaenidae | Papilionoidea |
 | *Scolitantides orion* | GCA_964345685.1 | Lycaenidae | Papilionoidea |
 | *Euphydryas aurinia* | GCA_975146965.1 | Nymphalidae | Papilionoidea |
-| *Aglais io* | GCA_905147045.1 | Nymphalidae | Papilionoidea |
+| *Danaus plexippus* | GCA_018135715.1 | Nymphalidae | Papilionoidea |
 | *Vanessa atalanta* | GCA_905147765.2 | Nymphalidae | Papilionoidea |
-| *Graphium eurypylus* | GCA_040363725.1 | Papilionidae | Papilionoidea |
+| *Zerynthia rumina* | GCA_965178335.1 | Papilionidae | Papilionoidea |
 | *Iphiclides podalirius* | GCA_933534255.1 | Papilionidae | Papilionoidea |
 | *Papilio elwesi* | GCA_029849275.1 | Papilionidae | Papilionoidea |
 | *Anthocharis cardamines* | GCA_905404175.1 | Pieridae | Papilionoidea |
