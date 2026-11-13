@@ -11,9 +11,11 @@ you can use to identify genes in these datasets in your assemblies. These
 are not only good for assessing completeness as we have seen, but also as
 a means to get gene sequences.
 
-For this tutorial you will run BUSCO on a couple of butterfly assemblies,
-learn to extract the BUSCO genes from them and how to set up files for
-alignment.
+For these tutorials, the objective will be to infer a phylogeny for the
+butterflies (Papilionoidea, our 'ingroup'). For that, we will need to
+identify genes in our ingroup and outgroup taxa. For this tutorial, you
+will run BUSCO on a couple of butterfly assemblies, learn to extract the
+BUSCO genes from them and how to set up files for alignment.
 
 ## Downloading the assemblies
 
