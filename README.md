@@ -46,7 +46,7 @@ Here are deposited the instructions for the assignments and exercises. Use the l
 - (3) [Gene alignment](./Tutorials/Alignments/Readme.md)
 - (4) [Model selection](./Tutorials/ModelSelection/Readme.md)
 - (5) [Maximum likelihood tree inference](./Tutorials/MaximumLikelihood/Readme.md)
-- (6) [Gene tree summary methods](./Tutorials/wASTRAL/Readme.md)
+- (6) [Gene tree summary methods](./Tutorials/GeneTrees/Readme.md)
 - (7) [Tree visualization and manipulation](./Tutorials/TreeManipulation/Readme.md)
 - (8) [Divergence timing](./Tutorials/TimingDivergence/Readme.md)
 
