@@ -70,6 +70,10 @@ IQ-TREE estimates an unrooted tree unless a root was specified in the
 analysis. The way an unrooted tree is drawn does not identify a biologically
 meaningful root, and the tree is therefore in FigTree rooted by default on the first taxon in your dataset or on the longest branch in the dataset. This is why we have included outgroups to the butterflies in our tree inference, and we can now reroot the tree using these. Find the clade containing the outgroup taxa (**WHICH clade?? Can we point towards a study??**) and select the branch leading to the clade in FigTree, then click 'Reroot' in the top panel. Note that these examples use a different set of taxa than you used, but the interface remains the same.
 
+<p align="center"><img src="./IQTREEraw.png" alt="Unedited IQ-TREE tree in FigTree" width="600"></p>
+
+<p align="center"><img src="./IQTREErooted.png" alt="Example tree rerooted on an outgroup" width="600"></p>
+
 Inspect the tip names and branch lengths, and check the internal labels for the support values reported by your analysis.
 
 **Questions**
