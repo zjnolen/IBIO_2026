@@ -111,7 +111,7 @@ where `<output_directory>` is replaced with the path you want the files to be ex
 and `<zip_file>` is the path to the zip you downloaded. Explore the structure of the output
 to find the fasta files, record their paths, then move on to running BUSCO.
 
-## Running BUSCO 💾
+## Running BUSCO 💻
 
 BUSCO has compiled datasets for a large number of organismal groups, and you can use the one
 most suitable for the breadth of your tree:
