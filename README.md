@@ -64,7 +64,7 @@ Here you can find a list of the programs we are going to use and links to where 
 
  * [AliView](http://www.ormbunkar.se/aliview/downloads/)
 
- * [IQ-TREE3](http://www.iqtree.org/)
+ * [IQ-TREE3](https://iqtree.github.io/)
  	
  * [FigTree](http://tree.bio.ed.ac.uk/software/figtree/)
 
