@@ -65,9 +65,7 @@ Here you can find a list of the programs we are going to use and links to where 
  * [AliView](http://www.ormbunkar.se/aliview/downloads/)
 
  * [IQ-TREE3](http://www.iqtree.org/)
- 
- * [MrBayes](http://nbisweden.github.io/MrBayes/)
-	
+ 	
  * [FigTree](http://tree.bio.ed.ac.uk/software/figtree/)
 
  * [Tracer](https://github.com/beast-dev/tracer/releases/tag/v1.7.1)
