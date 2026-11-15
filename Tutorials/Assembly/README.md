@@ -1,4 +1,4 @@
-# Tutorial 1: Genome assembly
+# Tutorial 1: Genome assembly 🧬
 
 ## Background
 
@@ -8,7 +8,7 @@ NCBI Sequence Read Archive (SRA), check and clean them, assemble them with
 SPAdes, and assess the assembly.
 
 We will perform this exercise on a sample of *Schizosaccharomyces pombe*,
-'fission yeast', which has a relatively small genome (~12Mb). We will download
+'fission yeast' 🥖🍺, which has a relatively small genome (~12Mb). We will download
 short-reads uploaded for this species that we can assemble the genome from, you
 can find info about the sequencing data at
 [NCBI's SRA record](https://www.ncbi.nlm.nih.gov/sra/?term=ERR17038703) or 
@@ -27,7 +27,7 @@ mitochondrial genome at the same time, we often can get a much better assembly
 of that using a dedicated organelle assembler, so we will follow up by repeating
 3 & 4 with a mitochondrial genome assembler.
 
-## Downloading sequencing reads with SRA toolkit
+## Downloading sequencing reads with SRA toolkit 🧬
 
 > Remember to change to the working directory (`cd ~/phylogenomics_course`) and run
 > `conda activate phylo` to activate your conda environment before running commands!
@@ -65,7 +65,7 @@ ls -lh data/raw_reads/ERR17038703_1.fastq.gz data/raw_reads/ERR17038703_2.fastq.
 
 The `_1` and `_2` files contain the two reads from each pair.
 
-## Trimming and deduplicate removal with fastp
+## Trimming and deduplicate removal with fastp 🧬
 
 fastp detects adapters, trims low-quality read ends, filters reads, and removes
 duplicate read pairs. It also produces an HTML report with statistics before and
@@ -116,7 +116,7 @@ zcat outputs/trimmed_reads/${ACCESSION}.R2.trimmed.fastq.gz | wc -l
 
 The two cleaned files should have matching line counts
 
-## Assemble the genome with Spades
+## Assemble the genome with Spades ♠️
 
 Run SPAdes on the cleaned paired reads:
 
@@ -154,7 +154,7 @@ Take a look at the [reference genome for this species on NCBI](https://www.ncbi.
 Based on the number of chromosomes and their length there, how did your assembly fare?
 Did you have any scaffolds that got close to assembling a whole chromosome?
 
-## Assess the whole-genome assembly with BUSCO
+## Assess the whole-genome assembly with BUSCO 🧬
 
 You'll also see assembly statistics on the reference genome's web page. We will
 assess the completeness of our assembly with BUSCO and get some similar stats,
@@ -212,7 +212,7 @@ then align each gene, giving us hundreds or thousands of genes to infer phylogen
 from. We will cover this in a later tutorial, for now, let's take a look at assembling
 the mitochondrial genome.
 
-## Assemble the mitochondrial genome with GetOrganelle
+## Assemble the mitochondrial genome with GetOrganelle 🧬
 
 Take a look again at your assembly from before, examining the fasta headers:
 
@@ -255,7 +255,7 @@ rounds, and `-k` supplies the k-mer sizes for assembly. Here we are using the
 suggested values for a fungus mitochondria in the
 [GetOrganelle documentation](https://github.com/Kinggerm/GetOrganelle#readme).
 
-### Check the mitochondrial assembly
+### Check the mitochondrial assembly 🧬
 
 The mitochondrial genome is circular, and a highly successful assembly will be
 able to reconstruct the full circular assembly, let's check for that in the log:
