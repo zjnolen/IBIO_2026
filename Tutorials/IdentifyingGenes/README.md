@@ -17,7 +17,7 @@ identify genes in our ingroup and outgroup taxa. For this tutorial, you
 will run BUSCO on a couple of butterfly assemblies, learn to extract the
 BUSCO genes from them and how to set up files for alignment.
 
-## Downloading the assemblies 💻 🧬
+## Downloading the assemblies 💾
 
 BUSCO can take awhile to run, so for this tutorial, we will just run it on
 one chromosome for a couple of species to get a feeling for it. Below, you'll
