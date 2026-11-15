@@ -1,6 +1,6 @@
-# Tutorial 2: Identifying genes in your assemblies
+# Tutorial 2: Identifying genes in your assemblies 🧬
 
-## Background
+## Background 🦋
 
 In most cases, to set up a phylogenomic dataset, you will need to identify
 orthologous genes in your assemblies and align each gene across your taxa.
@@ -17,7 +17,7 @@ identify genes in our ingroup and outgroup taxa. For this tutorial, you
 will run BUSCO on a couple of butterfly assemblies, learn to extract the
 BUSCO genes from them and how to set up files for alignment.
 
-## Downloading the assemblies
+## Downloading the assemblies 💻 🧬
 
 BUSCO can take awhile to run, so for this tutorial, we will just run it on
 one chromosome for a couple of species to get a feeling for it. Below, you'll
@@ -111,7 +111,7 @@ where `<output_directory>` is replaced with the path you want the files to be ex
 and `<zip_file>` is the path to the zip you downloaded. Explore the structure of the output
 to find the fasta files, record their paths, then move on to running BUSCO.
 
-## Running BUSCO
+## Running BUSCO 💾
 
 BUSCO has compiled datasets for a large number of organismal groups, and you can use the one
 most suitable for the breadth of your tree:
@@ -190,7 +190,7 @@ you've run. Note that you may not find any matching ones, as even though we have
 1 from both species, they may not come from the same ancestral chromosome, as most
 assemblies just number chromosomes by size.
 
-## Translating this to real data
+## Translating this to real data 📊
 
 If you were to set up a phylogenomics dataset with BUSCO on these species, you'd
 want to run BUSCO on all the species' full assemblies. Then, for each gene, you
@@ -326,7 +326,7 @@ for b in $(echo $buscos_found); do
 done
 ```
 
-## Annotating mitochondrial genomes with MITOS2
+## Annotating mitochondrial genomes with MITOS2 🧬
 
 Mitochondrial genomes provide another set of genes for phylogenetic analysis.
 Unlike the BUSCO exercise, here we will work with the mitochondrial chromosome
@@ -335,7 +335,7 @@ and are fast to annotate. We will use MITOS2 to predict protein-coding genes,
 tRNAs, and rRNAs in each mitochondrial genome, then prepare a dataset of the
 protein coding genes.
 
-### Download the mitochondrial chromosomes
+### Download the mitochondrial chromosomes 🧬
 
 Use each species' **assembly accession** from the table to download its
 mitochondrial chromosome. For example, for *Hesperia comma*:
@@ -395,7 +395,7 @@ directory. MITOS2 treats the sequence as circular by default, which will work
 for all these as they are highly complete, but if you have an incomplete mitochondrial
 sequence, you can also pass `--linear`.
 
-### Explore the annotations
+### Explore the annotations 🗺️
 
 After a run finishes, explore the output gene sequences:
 
