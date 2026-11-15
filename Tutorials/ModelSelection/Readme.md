@@ -1,4 +1,4 @@
-# Model selection 💻
+# Tutorial 4: Model selection 🧬
 
 In the first tutorials you have learned how to both handle raw data and assemble genomes as well as how to download sequences from GenBank and how to align them. For the next tutorial, we are going to use *ModelFinder* to find the best partitioning scheme for our nuclear butterfly dataset 🦋.
 
