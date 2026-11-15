@@ -59,8 +59,8 @@ reference genomes are available here](https://www.ncbi.nlm.nih.gov/datasets/geno
 Give it a try for one of the above and you should find the accession listed. Some
 species may have more than one assembly, but only one will be the reference assembly.
 
-![Some of the butterfly species you will infer a phylogeny for](Butterflies.png)
-*Some of the butterfly species you will infer a phylogeny for*
+![Some of the butterfly species you will infer a phylogeny for](Butterflies_v2.png)
+*Seen here above are some of the beautiful butterfly (Papilionoidea) species you will infer a phylogeny for in this course* 🦋
 
 Instead of clicking through these pages, we will download the genomes with the NCBI
 command line toolkit. You can use a species name or the assembly accession to download:
