@@ -2,6 +2,9 @@
 
 In the first tutorials you have learned how to both handle raw data and assemble genomes as well as how to download sequences from GenBank and how align them. For the next tutorial, we are going to use *ModelFinder* to find the best partitioning scheme for our nuclear butterfly dataset 🦋.
 
+![The foundations for a substitution model](<Substitution model.png>)
+*Here is a graphical representation of the six types of nucleotide substitutions that may occur in a phylogenetic dataset. JC69 is the simplest model where all substitutions (both transitions and transversions) are assumed to occur at an equal rate. HKY assumes that transitions and transversions have different rates and GTR assumes all six types of substitutions differ.*
+
 ## Choosing the right substitution model 🧬
 
 Now, we will use ModelFinder ([Kalyaanamoorthy et al. 2017](https://www.nature.com/articles/nmeth.4285)), as implemented in [IQ-TREE3](https://iqtree.github.io/) ([Nguyen et al. 2015](https://academic.oup.com/mbe/article/32/1/268/2925592)), to determine the best-fit model for these ten different genes. IQ-TREE3 for Windows, MacOSX and Linux can be downloaded [here](https://iqtree.github.io/#download), which you can also install on your personal computer.
