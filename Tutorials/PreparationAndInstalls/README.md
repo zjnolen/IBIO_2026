@@ -1,4 +1,4 @@
-# Tutorial 0: Preparing your working directory and installing software with Conda
+# Tutorial 0: Preparing your working directory and installing software with Conda 🐍
 
 ## Background
 
@@ -7,7 +7,7 @@ tools that you will need to install either on your own or a remote computer.
 Here we will go over how you can set up your working directory to keep your
 project organized and install specific versions of bioinformatic software.
 
-## Working directory
+## Working directory 📁
 
 We suggest setting up a folder you will work in for this course and have a
 suggested structure to keep things organized:
@@ -43,7 +43,7 @@ can use Visual Studio Code to combine these two apps into one, but there's
 many different text editors and terminal emulators you can use for these
 purposes.
 
-## Setting up a software environment with Conda
+## Setting up a software environment with Conda 🐍
 
 [Conda](https://github.com/conda/conda) is a package manager that lets you
 set up isolated environments with a set of specific software. You can use
@@ -130,7 +130,7 @@ the software. Bioconda is a repository of biology related software and
 conda-forge contains a wide variaty of open-source software and is added so
 that non-biology related dependencies can be grabbed (like python for spades).
 
-## Saving your data processing as scripts
+## Saving your data processing as scripts 📝
 
 These tutorials will give examples of commands that you might run one by one.
 Rather than running each command directly in your terminal, it is best to put
