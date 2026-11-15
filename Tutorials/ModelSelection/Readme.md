@@ -4,7 +4,7 @@ In the first tutorials you have learned how to both handle raw data and assemble
 
 <p align="center"><img src="Substitution model.png" alt="The foundations for a substitution model" width="600"></p>
 
-*Here is a graphical representation of the six types of nucleotide substitutions that may occur in a phylogenetic dataset. As an example, JC69 is the simplest model where all substitutions (both transitions and transversions) are assumed to occur at an equal rate. Other commonly used models are HKY which assumes that transitions and transversions have different rates and GTR which assumes all six types of substitutions differ.*
+*Here is a graphical representation of the six types of nucleotide substitutions that may occur in a phylogenetic dataset. As an example, JC69 is the simplest model where all substitutions (both transitions and transversions) are assumed to occur at an equal rate. Other commonly used models are HKY which assumes that transitions and transversions have different rates and GTR which assumes all six types of substitution rates differ.*
 
 ## Choosing the right substitution model 🧬
 
