@@ -1,8 +1,8 @@
-# Model Selection
+# Model selection 💻
 
-In the first tutorials you have learned how to both handle raw data and assemble genomes as well as how to download sequences from GenBank and how align them. For the next tutorial, we are going to use *ModelFinder* to find the best partitioning scheme for our nuclear dataset and also the best models for each partition.
+In the first tutorials you have learned how to both handle raw data and assemble genomes as well as how to download sequences from GenBank and how align them. For the next tutorial, we are going to use *ModelFinder* to find the best partitioning scheme for our nuclear butterfly dataset 🦋.
 
-## Choosing the right substitution model
+## Choosing the right substitution model 🧬
 
 Now, we will use ModelFinder ([Kalyaanamoorthy et al. 2017](https://www.nature.com/articles/nmeth.4285)), as implemented in [IQ-TREE3](https://iqtree.github.io/) ([Nguyen et al. 2015](https://academic.oup.com/mbe/article/32/1/268/2925592)), to determine the best-fit model for these ten different genes. IQ-TREE3 for Windows, MacOSX and Linux can be downloaded [here](https://iqtree.github.io/#download), which you can also install on your personal computer.
 
@@ -10,7 +10,7 @@ ModelFinder chooses the model that minimizes the BIC score (you can also change 
 
 Luckily for us, IQ-TREE has a built-in function which lets us concatenate our aligned genes right before alignment, if they are found in the same folder. Therefore, first inspect your *aligned* folder with the final nuclear alignments, and copy these aligments to a separate folder, which you can name e.g. *final_nuc_alignments*.
 
-### Running ModelFinder with IQ-TREE
+### Running ModelFinder with IQ-TREE 🪾
 
 Running IQ-TREE is relatively straightforward. It is a powerful program with many diffrent options, and there is good documentation that you may find [here](https://iqtree.github.io/doc/iqtree-doc.pdf). If you want an overview of the different options, run `iqtree -h`.
 
@@ -39,7 +39,7 @@ begin models;
         TIM2+F+R2: gene2;
 end;
 ```
-The first part of the output shows as where the gene is located in the supermatrix and the second part which models were chosen for which partitions. Here *gene1* and *gene3* are merged into a sigle partition.
+The first part of the output shows as where the genes are located in the supermatrix and the second part which models were chosen for which gene partitions. Here *gene1* and *gene3* are merged into a single partition.
 
 The above settings for model selection `-m TESTMERGEONLY` is the standard model selection which will only consider the invariable site and Gamma rate heterogeneity. If we want to consider an extended model selection that also includes the FreeRate heterogeneity model `-m MF` then we need to run:
 
