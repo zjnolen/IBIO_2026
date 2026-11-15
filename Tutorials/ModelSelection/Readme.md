@@ -1,6 +1,6 @@
 # Model selection 💻
 
-In the first tutorials you have learned how to both handle raw data and assemble genomes as well as how to download sequences from GenBank and how align them. For the next tutorial, we are going to use *ModelFinder* to find the best partitioning scheme for our nuclear butterfly dataset 🦋.
+In the first tutorials you have learned how to both handle raw data and assemble genomes as well as how to download sequences from GenBank and how to align them. For the next tutorial, we are going to use *ModelFinder* to find the best partitioning scheme for our nuclear butterfly dataset 🦋.
 
 ![The foundations for a substitution model](<Substitution model.png>)
 *Here is a graphical representation of the six types of nucleotide substitutions that may occur in a phylogenetic dataset. JC69 is the simplest model where all substitutions (both transitions and transversions) are assumed to occur at an equal rate. HKY assumes that transitions and transversions have different rates and GTR assumes all six types of substitutions differ.*
