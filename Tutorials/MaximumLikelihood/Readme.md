@@ -1,4 +1,4 @@
-# Maximum-likelihood phylogenetic inference 📉
+# Tutorial 5: Maximum-likelihood tree inference 🪾
 
 ## IQ-TREE3
 Now that we learned how to use IQ-TREE for model and partition search, we will move on to doing phylogenetic inference with it.
@@ -40,7 +40,7 @@ In this case, IQ-TREE3 will first concatenate the sequences found in the folder 
 iqtree -p final_nuc_alignments -m MFP+MERGE -B 1000 -alrt 1000 --prefix tree_inference -bnni
 ```
 
-**Output Files to check**
+**Output files to check**
 
    Suffix	     
    
