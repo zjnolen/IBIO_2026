@@ -1,12 +1,11 @@
-# Maximum-Likelihood Phylogenetic Inference
+# Maximum-likelihood phylogenetic inference
 
-
-## **IQTREE2** 
+## **IQTREE3** 
 Now that we learned how to use IQ-TREE for model and partition search, we will move on to doing phylogenetic inference with it.
 
-**Command line instructions and Tree inference**
+**Command line instructions and tree inference** 🪾
 
-Tree Inference is one of the most frequently used features of IQ-TREE and allows users to carry out phylogenetic analysis on a multiple sequence alignment (MSA). In the most basic case, no more than an MSA file is required to submit the job. Without further input, IQ-TREE will run with the default parameters and auto-detect the sequence type as well as the best-fitting substitution model. Additionally, Ultrafast Bootstrap ([Hoang et al., 2018](https://academic.oup.com/mbe/article/35/2/518/4565479)) and the SH-aLRT branch test ([Guindon et al., 2010](https://academic.oup.com/sysbio/article/59/3/307/1702850)) will be performed.
+Tree inference is one of the most frequently used features of IQ-TREE and allows users to carry out phylogenetic analysis on a multiple sequence alignment (MSA). In the most basic case, no more than an MSA file is required to submit the job. Without further input, IQ-TREE will run with the default parameters and auto-detect the sequence type as well as the best-fitting substitution model. Additionally, Ultrafast Bootstrap ([Hoang et al., 2018](https://academic.oup.com/mbe/article/35/2/518/4565479)) and the SH-aLRT branch test ([Guindon et al., 2010](https://academic.oup.com/sysbio/article/59/3/307/1702850)) will be performed.
 
 
 Go into the iqtree folder in your terminal as you did for the [previous tutorial](../ModelSelection/Readme.md#Running-ModelFinder-with-IQ-TREE)
@@ -14,26 +13,24 @@ Go into the iqtree folder in your terminal as you did for the [previous tutorial
 
 **Command reference**
 
-`./iqtree`: will call the executable
+`iqtree`: will call the executable in our activated Conda environment
 
-`-s <Alignment-file.phy>`: this option points your alignment to the program.
+`-p <alignment-folder>`: this option points your program to the alignment folder
 
-`-p <Partition-file>`: is your partition file, each partition to have its own evolution rate.
+`-m MFP+MERGE`: like the option `MF+MERGE` that we used last time, but actually does phylogenetic inference with the found best models for the best partitioning scheme
 
-`-m MFP+MERGE`: like the option `MF+MERGE` that we used last time, but actually does phylogenetic inference with the found best models for the best partitioning scheme.
+`-B`: will perfom Ultrafast Boostrapping
 
-`-B`: will perfom Ultrafast Boostrap.
+`-alrt`: will perform the SH-aLRT test
 
-`-alrt`: will perform the SH-aLRT test.
-
-`-bnni`: reduce the risk of overestimating branch supports with UFBoot due to severe model violation.
+`-bnni`: reduces the risk of overestimating branch supports with UFBoot due to severe model violation
 
 
 1. Now you can try to run a simple analysis by entering
 
 
 ```
-./iqtree2 -s ATP6_COI_CytB_ND5.phy
+iqtree -p ATP6_COI_CytB_ND5.phy
 ```
 
 
