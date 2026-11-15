@@ -57,20 +57,20 @@ iqtree -p final_nuc_alignments -m MFP+MERGE -B 1000 -alrt 1000 --prefix tree_inf
 
 3. Now, infer a tree also from the mitochondrial genes.
 
-**Congratulations! Now that you have run the analyses, compare the results of the three trees.**
+**Congratulations! Now that you have run the analyses, you can compare the results of the trees.**
 
 
-# Tree visualization 🪾
+# Simple tree visualization 🪾
 
-Open the file `.treefile` retrieved from IQ-TREE3 and check the support values of your trees. You can open such a file in the program FigTree. An example of what a tree looks like in FigTree is shown below in a screenshot.
+To have a quick look at your inferred trees, we suggest you open your IQ-TREE `.treefile` in FigTree. You can do this from your terminal by typing `figtree <treefile>`. An example of what a tree looks like in FigTree is shown below in a screenshot.
 
 <p align="center"><img src="./IQTREEc.png" alt="IQTREEc" width="600"></p>
 
-The tree is rooted by default on the first taxon in your dataset or on the longest branch in the dataset. In our case we should reroot the tree on the branch leading to our outgroups. Check the 
+IQ-TREE estimates an unrooted tree unless a root was specified in the
+analysis. The way an unrooted tree is drawn does not identify a biologically
+meaningful root, and the tree is therefore in FigTree rooted by default on the first taxon in your dataset or on the longest branch in the dataset. This is why we have included outgroups to the butterflies in our tree inference, and we can now reroot the tree using these. Find the clade containing the outgroup taxa (**WHICH clade?? Can we point towards a study??**) and select the branch leading to the clade in FigTree, then click 'Reroot' in the top panel. Note that these examples use a different set of taxa than you used, but the interface remains the same.
 
-to *Hyaena and mongooses* (which is our outgroups). In FigTree, click on the branch leading to *Hyaena and mongooses* to select it, and then click on the "Reroot" button in FigTree.
-
-
+Inspect the tip names and branch lengths, and check the internal labels for the support values reported by your analysis.
 
 **Questions**
 
