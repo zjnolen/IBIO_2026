@@ -66,7 +66,9 @@ Open the file `.treefile` retrieved from IQ-TREE3 and check the support values. 
 
 <p align="center"><img src="./IQTREEc.png" alt="IQTREEc" width="600"></p>
 
-The tree is rooted by default on the first taxon in your dataset or on the longest branch in the dataset. In our case we should reroot the tree on the branch leading to *Hyaena and mongooses* (which is our outgroups). In FigTree, click on the branch leading to *Hyaena and mongooses* to select it, and then click on the "Reroot" button in FigTree.
+The tree is rooted by default on the first taxon in your dataset or on the longest branch in the dataset. In our case we should reroot the tree on the branch leading to our outgroups. Check the 
+
+to *Hyaena and mongooses* (which is our outgroups). In FigTree, click on the branch leading to *Hyaena and mongooses* to select it, and then click on the "Reroot" button in FigTree.
 
 
 
