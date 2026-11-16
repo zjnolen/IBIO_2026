@@ -60,20 +60,28 @@ Here you can find a list of the programs we are going to use and links to where 
    	- **Notepad++** for Windows users
    	- Built-in text editors for Linux
 
- <!-- * [MAFFT](https://mafft.cbrc.jp/alignment/software/) -->
-
  * [AliView](http://www.ormbunkar.se/aliview/downloads/)
 
  * [IQ-TREE3](https://iqtree.github.io/)
- 	
- * [FigTree](http://tree.bio.ed.ac.uk/software/figtree/)
 
- * [Tracer](https://github.com/beast-dev/tracer/releases/tag/v1.7.1)
- 
- * [BEAST2](http://www.beast2.org/)
+ * [FigTree](http://tree.bio.ed.ac.uk/software/figtree/)
  
  * [R](https://www.r-project.org/)
    
  * [SPAdes](https://github.com/ablab/spades)
  
  * [wASTRAL](https://github.com/chaoszhang/ASTER)
+
+ * [BUSCO](https://gitlab.com/ezlab/busco)
+
+ * [fastp](https://github.com/OpenGene/fastp)
+
+ * [GetOrganelle](https://github.com/Kinggerm/GetOrganelle)
+
+ * [MAFFT](https://mafft.cbrc.jp/alignment/software/)
+
+ * [trimAl](https://vicfero.github.io/trimal/)
+
+ * [MITOS2](https://gitlab.com/Bernt/MITOS/-/tree/mitos2)
+
+ * [ggtree](https://github.com/YuLab-SMU/ggtree)
