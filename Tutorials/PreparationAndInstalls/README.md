@@ -120,7 +120,7 @@ activate it whenever you need the tool:
 
 ```bash
 # you don't need to run this
-conda create -n spades -c conda-forge -c bioconda "spades==v4.3.0"
+conda create -n spades -c conda-forge -c bioconda "spades==4.3.0"
 ```
 
 This command would create an environment named (`-n`) spades that installs
