@@ -1,5 +1,5 @@
 
-# **MULTIPLE SEQUENCE ALIGNMENT**
+# Tutorial 3: Multiple sequence alignment 🧬🧬
 
 You have now learned how to assemble genomes, pull sequences from those genomes, download data from the internet, and more. However, our sequences probably have different lengths, and nucleotide positions are not automatically *homologous*! To do phylogenetics our sequences need to be aligned.
 
