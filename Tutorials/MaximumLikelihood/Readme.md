@@ -68,7 +68,9 @@ To have a quick look at your inferred trees, we suggest you open your IQ-TREE `.
 
 IQ-TREE estimates an unrooted tree unless a root was specified in the
 analysis. The way an unrooted tree is drawn does not identify a biologically
-meaningful root, and the tree is therefore in FigTree rooted by default on the first taxon in your dataset or on the longest branch in the dataset. This is why we have included outgroups to the butterflies in our tree inference, and we can now reroot the tree using these. Find the clade containing the outgroup taxa (**WHICH clade?? Can we point towards a study??**) and select the branch leading to the clade in FigTree, then click 'Reroot' in the top panel. Note that these examples use a different set of taxa than you used, but the interface remains the same.
+meaningful root, and the tree is therefore in FigTree rooted by default on the first taxon in your dataset or on the longest branch in the dataset. This is why we have included outgroups to the butterflies in our tree inference, and we can now reroot the tree using these. Accurate rooting is important for the polarity of the tree, and we should therefore do some research before rooting our tree. Have a look at this [article](https://www.pnas.org/doi/10.1073/pnas.1907847116), which includes a large phylogenetic tree of Lepidoptera. (Epermenioidea is missing in this tree, but (hint!) the tree should not be rooted on this group.) *Considering this tree and our outgroup taxa, which clade should we root the tree on?*
+
+Find this clade and select the branch leading to the clade in FigTree, then click 'Reroot' in the top panel. Note that these examples use a different set of taxa than you used, but the interface remains the same.
 
 <p align="center"><img src="./IQTREEraw.png" alt="Unedited IQ-TREE tree in FigTree" width="600"></p>
 
