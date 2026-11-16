@@ -100,15 +100,15 @@ by a period (for example, `Hesperia_comma.GCA_905404135.1`).
 metadata <- read.csv(text = "
 label,family,superfamily
 Hesperia_comma.GCA_905404135.1,Hesperiidae,Papilionoidea
-Ochlodes_sylvanus.GCA_905404295.2,Hesperiidae,Papilionoidea
+Pyrgus_malvae.GCA_905404295.2,Hesperiidae,Papilionoidea
 Thymelicus_lineola.GCA_963932265.1,Hesperiidae,Papilionoidea
-Aricia_agestis.GCA_944452695.1,Lycaenidae,Papilionoidea
+Callophrys_avis.GCA_965178315.1,Lycaenidae,Papilionoidea
 Polyommatus_icarus.GCA_937595015.1,Lycaenidae,Papilionoidea
 Scolitantides_orion.GCA_964345685.1,Lycaenidae,Papilionoidea
 Euphydryas_aurinia.GCA_975146965.1,Nymphalidae,Papilionoidea
-Aglais_io.GCA_905147045.1,Nymphalidae,Papilionoidea
+Danaus_plexippus.GCA_018135715.1,Nymphalidae,Papilionoidea
 Vanessa_atalanta.GCA_905147765.2,Nymphalidae,Papilionoidea
-Graphium_eurypylus.GCA_040363725.1,Papilionidae,Papilionoidea
+Zerynthia_rumina.GCA_965178335.1,Papilionidae,Papilionoidea
 Iphiclides_podalirius.GCA_933534255.1,Papilionidae,Papilionoidea
 Papilio_elwesi.GCA_029849275.1,Papilionidae,Papilionoidea
 Anthocharis_cardamines.GCA_905404175.1,Pieridae,Papilionoidea
