@@ -23,9 +23,10 @@ In this intensive course we will introduce the basics of molecular phylogenetics
 
 ## **Index**
 
-### [Course assignment](./Assignment/)
+<-- ### [Course assignment](./Assignment/)
 
 Here are the details for the pass/fail assignment that you need to complete to pass the course.
+--!>
 
 ### [Course slides](./Lectures/)
 
