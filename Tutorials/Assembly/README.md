@@ -8,7 +8,7 @@ NCBI Sequence Read Archive (SRA), check and clean them, assemble them with
 SPAdes, and assess the assembly.
 
 We will perform this exercise on a sample of *Schizosaccharomyces pombe*,
-'fission yeast' 🥖🍺, which has a relatively small genome (~12Mb). We will download
+'fission yeast' 🍺, which has a relatively small genome (~12Mb). We will download
 short-reads uploaded for this species that we can assemble the genome from, you
 can find info about the sequencing data at
 [NCBI's SRA record](https://www.ncbi.nlm.nih.gov/sra/?term=ERR17038703) or 
