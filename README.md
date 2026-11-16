@@ -5,7 +5,7 @@ Teachers Jadranka Rota, Niklas Wahlberg, Zachary Nolen, Emma Kärrnäs, Ruben Co
 
 ## **Introduction**
 
-In this intensive course we will introduce the basics of molecular phylogenetics, covering both theory and practice. The idea behind the course is that the student gets an overview of the actual methods and learns through hands on exercises to use some of the most popular computer programs to study the phylogeny of any group using genetic information.
+In this intensive course we will introduce the basics of molecular phylogenetics with a focus on genome level data, covering both theory and practice. The idea behind the course is that the student gets an overview of the actual methods and learns through hands on exercises to use some of the most popular computer programs to study the phylogeny of any group using genetic information.
 
 ## **Program**
 
