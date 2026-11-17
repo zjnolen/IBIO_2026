@@ -32,14 +32,11 @@ This command will produce a few files as output, including a file ending with `.
 #nexus
 
 begin sets;
-    charset gene1 = 1-987;
+    charset gene1_gene3 = 1-987 1846-2912;
     charset gene2 = 988-1845;
-    charset gene3 = 1846-2912;
-end;
 
-begin models;
-    partition PARTITION =
-        GTR+F+R3: gene1, gene3,
+charpartition mymodels =
+        GTR+F+R3: gene1_gene3,
         TIM2+F+R2: gene2;
 end;
 ```
@@ -60,4 +57,5 @@ If you are in this section, well done! Now you have several files with the selec
 
 **Questions:**
 
-1. Compare the three files that you should see now that all end with `.best_scheme.nex`. These will include the estimated best partitioning schemes and the best fit models for them. Are there any differences?
+1. Perform model selection for the mitochondrial dataset by also partitioning per gene!
+2. Compare the output from the different runs that all end with `.best_scheme.nex`. These will include the estimated best partitioning schemes and the best fit models for them. Are there any differences?
