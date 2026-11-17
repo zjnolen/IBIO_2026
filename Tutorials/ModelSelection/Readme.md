@@ -57,5 +57,5 @@ If you are in this section, well done! Now you have several files with the selec
 
 **Questions:**
 
-1. Perform model selection for the mitochondrial dataset by also partitioning per gene!
+1. Perform the extended model selection for the mitochondrial dataset by also partitioning per gene!
 2. Compare the output from the different runs that all end with `.best_scheme.nex`. These will include the estimated best partitioning schemes and the best fit models for them. Are there any differences?
