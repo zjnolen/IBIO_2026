@@ -63,7 +63,7 @@ We have to run it once for each gene. You can do that manually or as a loop like
 #Loop through each .faa file and align the genes within
 for i in genes/*.faa; 
 do 
-        gene=${i%.multifasta.faa} 
+        gene=$(basename "$i" .multifasta.faa)
         mafft --thread 1 --auto "$i" > "aligned/${gene}.aligned.faa"
 done
 ```
