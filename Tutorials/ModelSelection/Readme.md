@@ -40,7 +40,7 @@ charpartition mymodels =
         TIM2+F+R2: gene2;
 end;
 ```
-The first part of the output here shows us where the genes are located in the supermatrix and the second part which models were chosen for which gene partitions. Here *gene1* and *gene3* are merged into a single partition.
+The first part of the output here shows us where the genes are located in the supermatrix (as you did not create a supermatrix you will instead see a path the the files) and the second part which models were chosen for which gene partitions. Here *gene1* and *gene3* are merged into a single partition.
 
 The above settings for model selection `-m TESTMERGEONLY` is the standard model selection which will only consider the invariable site and Gamma rate heterogeneity. If we want to consider an extended model selection that also includes the FreeRate heterogeneity model `-m MF` then we need to run:
 
@@ -51,6 +51,30 @@ iqtree -p final_nuc_alignments --prefix second -m MF+MERGE
 Now, as a third option, if you want to restrict your model search to only those models supported by a specific program (Mr Bayes for example), then run:
 ```
 iqtree -p final_nuc_alignments --prefix third -m TESTMERGEONLY -mset mrbayes
+```
+
+Until this point, we have shown you **how to run IQ-TREE without creating a supermatrix**. However, sometimes you may prefer to create a supermatrix yourself prior to running IQ-TREE. By doing so, you will get information on the size of the whole alignment, the number of taxa and how complete your dataset is, before running the tree. You can install the program [PhyKIT](https://github.com/jlsteenwyk/phykit) and your Conda environment:
+
+```
+conda install bioconda::phykit
+```
+
+Then you need to create a text file containing paths to your alignments. Finally, run the following command:
+
+```
+phykit create_concatenation_matrix --alignment <alignment_list> --prefix concat
+```
+
+This will give you three files:
+```
+concat.fa
+concat.occupancy
+concat.partition
+```
+
+The two files of interest are `concat.fa` which contains the concatenated alignment and `concat.partition` which is your partition file. You can now input both these files to IQ-TREE with the following command, where `-s` is for the supermatrix and `-p` for the partition file you just created:
+```
+iqtree -s concat.fa -p concat.partition --prefix concat -m MF+MERGE
 ```
 
 If you are in this section, well done! Now you have several files with the selected best-fit model for our dataset.
