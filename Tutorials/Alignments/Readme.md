@@ -91,7 +91,8 @@ for i in aligned/*.aligned.faa; do
         -automated1 \
         -backtrans "genes/${gene}.multifasta.fna" \
         -out "aligned/${gene}.aligned.fna" \
-        -fasta
+        -fasta \
+        -ignorestopcodon
 done
 ```
 
