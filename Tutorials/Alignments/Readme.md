@@ -22,14 +22,14 @@ We will need the following tools: mafft, trimAl
 
 You have already gotten your mitochondrial genes, but we have also prepared a set of BUSCO genes for you. Let's start by fetching those.
 
-The BUSCOS ar sitting here: *Data/papilionoidea_10buscos.tar.gz*
+The BUSCOS ar sitting here: *data/papilionoidea_10buscos.tar.gz*
 
 Extract them and put them in a suitable folder. Something like this:
 
 ```bash
-mkdir Data/BUSCO/genes
-cd Data/BUSCO/genes
-tar -xf ../../Data/papilionoidea_10buscos.tar.gz
+mkdir data/busco/genes
+cd data/busco/genes
+tar -xf ../../data/papilionoidea_10buscos.tar.gz
 ls -h
 cd -
 ```
@@ -45,7 +45,7 @@ Now that we have our genes, let's run mafft!
 Let's first make a directory for our alignments.
 
 ```bash
-cd Data/BUSCO
+cd data/busco
 mkdir -p aligned 
 ```
 
@@ -99,13 +99,13 @@ That should be all you need to do! But, we of course should also check our align
 
 ## Part 4. Visualising the alignments
 
-It is always good to actually look at your alignments and not jsut trust that the automatic tools did everything perfectly. Open the **Aliview** for that.
+It is always good to actually look at your alignments and not jsut trust that the automatic tools did everything perfectly. Open the alignment in **Aliview** to do that.
 
 *How does it look? Does it look "aligned"?* You should see something like this now (but with different taxa):
 
 <p align="center"><img src="./Aliview7.png" alt="Aliview7" width="800"></p>
 
-*Is there anything in the alignment which catches your attention?* Scrolling along the alignment, it might not look very good in some parts, whereas other parts look quite nicely aligned. *Why might that be?* Does this look like an alignment you would be happy to analyse using phylogenetic methods? Maybe not. Remember, alignments are statements of homology for the positions of nucleotides in your sequences, and in some positions we may be unsure of homology (lots of gaps).
+*Is there anything in the alignment that catches your attention?* Scrolling along the alignment, it might not look very good in some parts, whereas other parts look quite nicely aligned. *Why might that be?* Does this look like an alignment you would be happy to analyse using phylogenetic methods? Maybe not. Remember, alignments are statements of homology for the positions of nucleotides in your sequences, and in some positions we may be unsure of homology (lots of gaps).
 
 Check each of your alignments in **Aliview**. *How do the alignments look? Would you be willing to analyse these data in a phylogenetic framework?* Visualizing an alignment like this is very complicated. Try to use the visualizing options you have in **Aliview**. For example if you click on the `Translate nucleotide sequence to Amino Acids`, you should see something like this:
 
