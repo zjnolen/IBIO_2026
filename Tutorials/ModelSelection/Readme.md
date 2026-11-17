@@ -24,7 +24,7 @@ Running IQ-TREE is relatively straightforward. It is a powerful program with man
 iqtree -p final_nuc_alignments --prefix first -m TESTMERGEONLY
 ```
 
-Here, `-p final_nuc_alignments` designates `final_alignments` as the input folder containing the genes, `--prefix first` gives all the output files the prefix *first* and `-m TESTMERGEONLY` specifies that we want to only select the best-fit partitioning scheme of our genes by possibly merging partitions to reduce over-parameterization and increase model fit, without inferring a tree afterwards.
+Here, `-p final_nuc_alignments` designates `final_nuc_alignments` as the input folder containing the genes, `--prefix first` gives all the output files the prefix *first* and `-m TESTMERGEONLY` specifies that we want to only select the best-fit partitioning scheme of our genes by possibly merging partitions to reduce over-parameterization and increase model fit, without inferring a tree afterwards.
 
 This command will produce a few files as output, including a file ending with `.best_scheme.nex`. This one will contain our inferred partitioning scheme in the so-called Nexus format, and shows us the gene partitions and the models that were chosen as the best fit. If you open the file you will see something like this:
 
