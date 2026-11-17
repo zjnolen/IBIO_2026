@@ -40,7 +40,7 @@ charpartition mymodels =
         TIM2+F+R2: gene2;
 end;
 ```
-The first part of the output here shows as where the genes are located in the supermatrix and the second part which models were chosen for which gene partitions. Here *gene1* and *gene3* are merged into a single partition.
+The first part of the output here shows us where the genes are located in the supermatrix and the second part which models were chosen for which gene partitions. Here *gene1* and *gene3* are merged into a single partition.
 
 The above settings for model selection `-m TESTMERGEONLY` is the standard model selection which will only consider the invariable site and Gamma rate heterogeneity. If we want to consider an extended model selection that also includes the FreeRate heterogeneity model `-m MF` then we need to run:
 
