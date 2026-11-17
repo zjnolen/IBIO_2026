@@ -72,7 +72,7 @@ You should now have a set of aligned amino acid sequences. You can check them ou
 
 ## Part 3. Trimming and back translation
 
-Now we will trim our alignments. We will use **trimAL**, which is a common trimming tool and which has an automatic trimming feature. It can also backtranslate amino acids to nuclotides, so we can do two things in the same command.
+Now we will trim our alignments. We will use **trimAl**, which is a common trimming tool and which has an automatic trimming feature. It can also backtranslate amino acids to nucleotides, so we can do two things in the same command.
 
 ```bash
 trimAl -h #check out the options
