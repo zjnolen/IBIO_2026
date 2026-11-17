@@ -18,7 +18,7 @@ By aligning the amino acids and then backtranslating them to nucleotides we are 
 
 We will need the following tools: mafft, trimAl
 
-## Part 1. Setup
+## Part 1: Setup 💻
 
 You have already gotten your mitochondrial genes, but we have also prepared a set of BUSCO genes for you. Let's start by fetching those.
 
@@ -38,7 +38,7 @@ Check it out! Look's like we now have some genes. You'll notice we have files en
 
 Here we will show you how to align and trim these genes, and then you will have to do the same thing again but for the mitochondrial genes.
 
-## Part 2. Alignment
+## Part 2: Alignment 🧬🧬
 
 Now that we have our genes, let's run mafft!
 
@@ -70,7 +70,7 @@ done
 
 You should now have a set of aligned amino acid sequences. You can check them out using a text editor or **Aliview**, just to see what they look like.
 
-## Part 3. Trimming and back translation
+## Part 3: Trimming and back translation 🪵
 
 Now we will trim our alignments. We will use **trimAL**, which is a common trimming tool and which has an automatic trimming feature. It can also backtranslate amino acids to nuclotides, so we can do two things in the same command.
 
@@ -97,7 +97,7 @@ done
 
 That should be all you need to do! But, we of course should also check our alignments.
 
-## Part 4. Visualising the alignments
+## Part 4: Visualising the alignments 👀
 
 It is always good to actually look at your alignments and not jsut trust that the automatic tools did everything perfectly. Open the alignment in **Aliview** to do that.
 
