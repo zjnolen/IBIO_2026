@@ -53,16 +53,16 @@ Now, as a third option, if you want to restrict your model search to only those 
 iqtree -p final_nuc_alignments --prefix third -m TESTMERGEONLY -mset mrbayes
 ```
 
-Until this point, we have shown you **how to run IQ-TREE without creating a supermatrix**. However, sometimes you may prefer to create a supermatrix yourself prior to running IQ-TREE. By doing so, you will get information on the size of the whole alignment, the number of taxa and how complete your dataset is, before running the tree. You can install the program [PhyKIT](https://github.com/jlsteenwyk/phykit) and your Conda environment:
+Until this point, we have shown you **how to run IQ-TREE without creating a supermatrix**. However, if you prefer to create a supermatrix yourself prior to running IQ-TREE you can install the program [PhyKIT](https://github.com/jlsteenwyk/phykit) in your Conda environment:
 
 ```
 conda install bioconda::phykit
 ```
 
-Then you need to create a text file containing paths to your alignments. Finally, run the following command:
+This program is very simple to use. However, prior to running it you need to create a text file `alignment_list.txt` containing paths to your alignments. Then, run the following command:
 
 ```
-phykit create_concatenation_matrix --alignment <alignment_list> --prefix concat
+phykit create_concatenation_matrix --alignment alignment_list.txt --prefix concat
 ```
 
 This will give you three files:
@@ -73,6 +73,7 @@ concat.partition
 ```
 
 The two files of interest are `concat.fa` which contains the concatenated alignment and `concat.partition` which is your partition file. You can now input both these files to IQ-TREE with the following command, where `-s` is for the supermatrix and `-p` for the partition file you just created:
+
 ```
 iqtree -s concat.fa -p concat.partition --prefix concat -m MF+MERGE
 ```
