@@ -4,15 +4,15 @@ In the first tutorials you have learned how to both handle raw data and assemble
 
 <p align="center"><img src="Substitution model.png" alt="The foundations for a substitution model" width="600"></p>
 
-*Here is a graphical representation of the six types of nucleotide substitutions that may occur in a phylogenetic dataset. As an example, JC69 is the simplest model where all substitutions (both transitions and transversions) are assumed to occur at an equal rate. Other commonly used models are HKY which assumes that transitions and transversions have different rates and GTR which assumes all six types of substitution rates differ.*
+*Here is a graphical representation of the six types of nucleotide substitutions that may occur in an alignment. As an example, JC69 is the simplest model where all substitutions (both transitions and transversions) are assumed to occur at an equal rate. Other commonly used models are HKY which assumes that transitions and transversions have different rates and GTR which assumes all six types of substitution rates differ.*
 
 ## Choosing the right substitution model 🧬
 
 Now, we will use ModelFinder ([Kalyaanamoorthy et al. 2017](https://www.nature.com/articles/nmeth.4285)), as implemented in [IQ-TREE3](https://iqtree.github.io/) ([Nguyen et al. 2015](https://academic.oup.com/mbe/article/32/1/268/2925592)), to determine the best-fit model for these ten different genes. IQ-TREE3 for Windows, MacOSX and Linux can be downloaded [here](https://iqtree.github.io/#download), which you can also install on your personal computer.
 
-ModelFinder chooses the model that minimizes the BIC score (you can also change the selection criteria to AIC or AICc by adding the option -AIC or -AICc, respectively). If you have a multi-gene dataset, it is common practise to concatenate the gene alignments for all taxa into a supermatrix (alignment containing all genes and taxa), and also to partition the dataset in some way. A dataset may be partitioned in many different ways (e.g. by codon position or by gene), and here we will do it by gene. By partitioning the dataset by gene, we will determine the best fit models for every gene before inferring our tree.
+ModelFinder chooses the model that minimizes the BIC score (you can also change the selection criteria to AIC or AICc by adding the option -AIC or -AICc, respectively). If you have a multi-gene dataset, it is common practise to concatenate the gene alignments for all taxa into a supermatrix (alignment containing all genes and taxa), and also to partition the dataset in some way. A dataset may be partitioned in many different ways (e.g. by codon position or by gene) – here we will do it by gene. By partitioning the dataset by gene, we will determine the best fit models for every gene before inferring our tree.
 
-Luckily for us, IQ-TREE has a built-in function which lets us concatenate our aligned genes right before alignment, if they are found in the same folder. Therefore, first inspect your *aligned* folder with the final nuclear alignments, and copy these aligments to a separate folder, which you can name e.g. *final_nuc_alignments*.
+Luckily for us, IQ-TREE has a built-in function which lets us automatically concatenate our aligned genes before running ModelFinder and inferring a tree, if these genes are found in the same folder. Therefore, first inspect your `aligned` folder with the final nuclear alignments ending with `.fna`, and copy these aligments to a separate folder, which you can name e.g. `final_nuc_alignments`.
 
 ### Running ModelFinder with IQ-TREE 🪾
 
@@ -24,9 +24,9 @@ Running IQ-TREE is relatively straightforward. It is a powerful program with man
 iqtree -p final_nuc_alignments --prefix first -m TESTMERGEONLY
 ```
 
-Here, `-p final_nuc_alignments` designates *final_alignments* as the input folder containing the genes, `--prefix first` gives all the output files the prefix *first* and `-m TESTMERGEONLY` specifies that we want to only select the best-fit partitioning scheme of our genes by possibly merging partitions to reduce over-parameterization and increase model fit, without inferring a tree afterwards.
+Here, `-p final_nuc_alignments` designates `final_alignments` as the input folder containing the genes, `--prefix first` gives all the output files the prefix *first* and `-m TESTMERGEONLY` specifies that we want to only select the best-fit partitioning scheme of our genes by possibly merging partitions to reduce over-parameterization and increase model fit, without inferring a tree afterwards.
 
-This command will produce a few files as output, including a file ending with `.best_scheme.nex`. This one will contain our inferred partitioning scheme in the so-called Nexus format, and shows us the gene partitions and the models that were chosen as the best fit. If you open the file it will look something like this:
+This command will produce a few files as output, including a file ending with `.best_scheme.nex`. This one will contain our inferred partitioning scheme in the so-called Nexus format, and shows us the gene partitions and the models that were chosen as the best fit. If you open the file you will see something like this:
 
 ```
 #nexus
@@ -43,7 +43,7 @@ begin models;
         TIM2+F+R2: gene2;
 end;
 ```
-The first part of the output shows as where the genes are located in the supermatrix and the second part which models were chosen for which gene partitions. Here *gene1* and *gene3* are merged into a single partition.
+The first part of the output here shows as where the genes are located in the supermatrix and the second part which models were chosen for which gene partitions. Here *gene1* and *gene3* are merged into a single partition.
 
 The above settings for model selection `-m TESTMERGEONLY` is the standard model selection which will only consider the invariable site and Gamma rate heterogeneity. If we want to consider an extended model selection that also includes the FreeRate heterogeneity model `-m MF` then we need to run:
 
