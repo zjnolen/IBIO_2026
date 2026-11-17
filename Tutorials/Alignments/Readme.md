@@ -75,7 +75,7 @@ You should now have a set of aligned amino acid sequences. You can check them ou
 Now we will trim our alignments. We will use **trimAl**, which is a common trimming tool and which has an automatic trimming feature. It can also backtranslate amino acids to nucleotides, so we can do two things in the same command.
 
 ```bash
-trimAl -h #check out the options
+trimal -h #check out the options
 ```
 
 The *-automated1* trimming method should be fine. Feel free to explore others; this dataset is small enough that you may actually be able to visually perceive the differences.
