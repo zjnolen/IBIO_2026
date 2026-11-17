@@ -103,13 +103,13 @@ It is always good to actually look at your alignments and not jsut trust that th
 
 *How does it look? Does it look "aligned"?* You should see something like this now (but with different taxa):
 
-<p align="center"><img src="./Aliview7.png" alt="Aliview7" width="800"></p>
+![An alignment](Aliview7.png)
 
 *Is there anything in the alignment that catches your attention?* Scrolling along the alignment, it might not look very good in some parts, whereas other parts look quite nicely aligned. *Why might that be?* Does this look like an alignment you would be happy to analyse using phylogenetic methods? Maybe not. Remember, alignments are statements of homology for the positions of nucleotides in your sequences, and in some positions we may be unsure of homology (lots of gaps).
 
 Check each of your alignments in **Aliview**. *How do the alignments look? Would you be willing to analyse these data in a phylogenetic framework?* Visualizing an alignment like this is very complicated. Try to use the visualizing options you have in **Aliview**. For example if you click on the `Translate nucleotide sequence to Amino Acids`, you should see something like this:
 
-<p align="center"><img src="./Aliview4.png" alt="Aliview4" width="800"></p>
+![Amino acid alignment](Aliview4.png)
 
 The majority of the changes in the nucleotide level should not change the corresponding amino acid. This are **Synonymous Mutations** as you have probably guessed. Are there some places where this is not the case? Anything that looks weird?
 
