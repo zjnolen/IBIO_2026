@@ -6,7 +6,7 @@ Various methods have been developed to investigate these patterns. We will use [
 
 wASTRAL is a commandline driven program, but works very simply. The input file is a file with all the gene trees that one is interested in, so to do an ASTRAL analysis, we first need to generate gene trees. This can be done with IQ-TREE or MrBayes, or any other program that can generate a phylogenetic tree from DNA data. In principle one could do this one by one for each gene, but that would be tedious if one has a large number of genes (e.g. 100s or 1000s of genes). Fortunately, IQ-TREE has a command that will do this for you automatically, either based on a folder with the individual genes in separate files (Fasta or Phylip format), or based on a concatenated dataset and a gene partition file. 
 
-We will here use the ten aligned nuclear genes that we have already inferred ML trees with. As it can be nice to separate our IQ-TREE and wASTRAL analyses, copy the `final_nuc_alignments` folder into a new folder called e.g. `wASTRAL`. Estimating the gene trees is now very easy, you just run the following command inside the wASTRAL folder:
+We will now use the ten aligned nuclear genes that we have already inferred a ML tree with and infer all gene trees with one command, `-S`. Estimating the gene trees is thus very easy, you just run the following command:
 
 ```
 iqtree -S final_nuc_alignments --prefix astral -B 1000 -T AUTO
@@ -18,9 +18,9 @@ After a couple of minutes you should have a number of files with the name `genes
 Now, you run the following command to summarize the gene trees:
 
 ```
-bin/wastral -o wastral.tre -i genes.treefile
+wastral -o wastral.tre -i genes.treefile
 ```
 
 The command `-o` is used to designate the output file, which you should name `wastral.tre`, and this is followed by the input file `genes.treefile` which you obtained from the previous run.
 
-Now have a look at the `wastral.tre` file in **FigTree**. *Does it differ from the tree you have previously gotten when analysing concatenated data?*
+Now have a look at the `wastral.tre` file in **FigTree**. *Does it differ from the tree you have previously gotten when analysing the concatenated data?*
