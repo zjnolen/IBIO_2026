@@ -32,6 +32,15 @@ After a couple of minutes you should have a number of files in the folder you se
 
 ~~Now, you run the following command to summarize the gene trees:~~
 
+Now we put all the genetrees into a single file, like so:
+
+```
+for file in outputs/gene_trees/*.treefile; do
+    gene=$(basename "$file" .treefile)
+    awk -v gene="$gene" '{ print "[" gene "] " $0 }' "$file" >> genes.treefile
+done
+```
+
 The version of wASTRAL available on Conda actually is a bit bugged! You need an updated version, please download from the [ASTER releases page](https://github.com/chaoszhang/ASTER/releases) the version for your OS, extract and use the `wastral` file:
 
 ```
