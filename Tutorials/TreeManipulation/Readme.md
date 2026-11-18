@@ -1,4 +1,4 @@
-# Tree visualization and manipulation
+# Tutorial 7: Tree visualization and manipulation 🪾
 
 Once trees are generated, they can be used for a variety of purposes, from
 further analyses on the evolution of characters and other features, to making
@@ -8,7 +8,7 @@ of a tree file for other programs to read in for further analyses. We will
 first use **FigTree** to explore and make simple changes to the tree. We will
 then make a reproducible plot in R with ggtree.
 
-## Explore the tree in FigTree
+## Explore the tree in FigTree 🪾
 
 Open your IQ-TREE `.treefile` in FigTree again. Inspect the tip names and branch lengths, and check the internal labels for the support values reported by your analysis.
 
@@ -47,13 +47,13 @@ spice up your figure, e.g. to add pictures of the taxa in the tree, you can expo
 the tree as a pdf file and import it into a graphics program like Adobe Illustrator,
 InkScape or even PowerPoint.
 
-## Make a reproducible plot with ggtree
+## Make a reproducible plot with ggtree 📊
 
 FigTree is convenient for browsing and quick edits. An R script makes the
 plotting steps explicit and repeatable, and makes it easier to use species
 taxa information from a table.
 
-### Install and load the packages
+### Install and load the packages 💻
 
 We installed R and the packages we need in our conda environment at the start
 of the course. You can run R in the command line with the `R` command.
@@ -70,7 +70,7 @@ library(ggtree)
 almost all phylogenetics R packages. `ggtree` is used for plotting trees using
 `ggplot2` syntax. We will make plots both with plain `ape` and `ggtree`.
 
-### Read and check the tree
+### Read and check the tree 🪾
 
 Set `tree_file` to the `.treefile` made by your IQ-TREE analysis. The path
 below is an example; use the actual path and filename from your analysis.
@@ -123,7 +123,7 @@ left out of the plot.
 metadata <- metadata[match(tree$tip.label, metadata$label), ]
 ```
 
-### Root and plot
+### Root and plot 📊
 
 Root the tree based on the outgroup. Here the metadata can help us, as we
 have the superfamily and know all non-Papilionoidea species in this set are
