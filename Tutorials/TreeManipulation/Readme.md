@@ -125,12 +125,10 @@ metadata <- metadata[match(tree$tip.label, metadata$label), ]
 
 ### Root and plot 📊
 
-Root the tree based on the outgroup. Here the metadata can help us, as we
-have the superfamily and know all non-Papilionoidea species in this set are
-intended as the outgroup:
+Root the tree based on the outgroup:
 
 ```r
-outgroups <- metadata[metadata$superfamily != "Papilionoidea", "label"]
+outgroups <- c("Cossus_cossus.GCA_965117205.1")
 
 tree <- root(tree, outgroup = outgroups, resolve.root = TRUE)
 ```
