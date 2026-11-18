@@ -9,7 +9,7 @@ wASTRAL is a commandline driven program, but works very simply. The input file i
 We will now use the ten aligned nuclear genes that we have already inferred a ML tree with and infer all gene trees with one command, `-S`. Estimating the gene trees is thus very easy, you just run the following command:
 
 ```
-iqtree -S final_nuc_alignments --prefix astral -B 1000 -T AUTO
+iqtree -S final_nuc_alignments --prefix genes -B 1000 -T AUTO
 ```
 After a couple of minutes you should have a number of files with the name `genes.*`. The file we are interested in is `genes.treefile`, which should have ten trees in it (one tree for each gene). You can open this file in **FigTree**, and flip through the different trees by clicking on the arrows on the top right (see red rectangle below) in the program. *Do they all look like they have the same topology?* If you look very carefully, you will notice some trees are missing one or two species. This is because that particular gene was missing from the mitochondrial genome data, perhaps because the quality of the sequence was not good.
 
