@@ -32,7 +32,7 @@ After a couple of minutes you should have a number of files in the folder you se
 
 ~~Now, you run the following command to summarize the gene trees:~~
 
-Now we put all the genetrees into a single file, like so:
+If you can't figure out how to `cat` all the genetrees into a single file, this loop may work. I haven't tried it but you can if you want.
 
 ```
 for file in outputs/gene_trees/*.treefile; do
