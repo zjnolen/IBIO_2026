@@ -10,17 +10,9 @@ then make a reproducible plot in R with ggtree.
 
 ## Explore the tree in FigTree
 
-Open your IQ-TREE `.treefile` in FigTree. You can do this from your terminal by
-typing `figtree <treefile>`. Inspect the tip names and branch lengths, and check
-the internal labels for the support values reported by your analysis.
+Open your IQ-TREE `.treefile` in FigTree again. Inspect the tip names and branch lengths, and check the internal labels for the support values reported by your analysis.
 
-IQ-TREE estimates an unrooted tree unless a root was specified in the
-analysis. The way an unrooted tree is drawn does not identify a biologically
-meaningful root. This is why we have included outgroups to the butterflies in
-our tree inference, we can now reroot the tree using these. Find the clade
-containing the outgroup taxa and select the branch leading to the clade in
-FigTree, then click 'Reroot' in the top panel. Note that these examples use
-a different set of taxa than you used, but the interface remains the same.
+Again, find the clade containing the outgroup taxa and select the branch leading to the clade in FigTree, then click 'Reroot' in the top panel. Note that these examples use a different set of taxa than you used, but the interface remains the same.
 
 <p align="center"><img src="./IQTREEraw.png" alt="Unedited IQ-TREE tree in FigTree" width="600"></p>
 
@@ -44,8 +36,7 @@ where two main clades are coloured:
 <p align="center"><img src="./IQTREEcolour.png" alt="IQTREEcolour" width="600"></p>
 
 Most likely we would like to report bootstrap and other support values on our tree
-for a figure in a publication. To make them visible, click on the `Node Labels`
-tab on the left, and then *Display:* `label`:
+for a figure in a publication. Remember, to make them visible, click on the `Node Labels` tab on the left, and then *Display:* `label`:
 
 <p align="center"><img src="./IQTREEsupport.png" alt="IQTREEsupport" width="600"></p>
 
