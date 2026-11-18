@@ -1,141 +1,233 @@
+# Tutorial 8: Dating the butterfly tree with IQ2MC
 
+In this tutorial, we will work on dating your tree inferred in the
+[maximum-likelihood tree tutorial](../MaximumLikelihood/Readme.md). We will
+use MCMCtree to do the dating, with its implementation in IQ-TREE 3 called
+**IQ2MC**. This combines IQ-TREE 3 and MCMCtree: IQ-TREE calculates an
+approximate sequence likelihood for a fixed tree, and MCMCtree samples
+divergence times using a molecular clock and calibration priors. One of the
+advantages here is that by calculating the approximate likelihood with IQ-TREE,
+we can utilize the same partitions and models we used in tree inference.
 
-# Divergence Time Inference with BEAST2
+The result we get here will not change the topology. Rather the branch lengths,
+which are now in units of substitutions per site, will be converted into units
+of time. This is done with calibrations, portions of the tree you have an estimated
+timing of divergence, either from fossils or other trees calibrated with such
+information. We will use the latter of these, secondary calibrations from published
+divergence-time estimates (Kawahara et al. 2019; *PNAS*).
 
-In previous days we saw how to prepare molecular datasets, how to find the best partitioning scheme and best substitution model; and we finally saw how to infer phylogenies using **Bayesian** and **Maximum Likelihood** approaches. We very briefly saw how to interpret the obtained trees and how to check the obtained results.
+## Extra things we'll need
 
-In this tutorial, we will demonstrate how time-calibrated phylogenies can be inferred using a Bayesian approach. For this we will use the program BEAST2 (check that you have version 2.7.3 or higher), which is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences. BEAST2 includes a graphical user-interface for setting up standard analyses and a suit of programs for analysing the results.
+Most of what we need is already in our conda environment, but we will need
+two more tools. To use IQ2MC, we need a special version of MCMCtree distributed
+in [IQ-TREE's version of PAML](https://github.com/iqtree/paml) which includes
+modifications for IQ-TREE's version of the MCMCtree configuration file (or
+control file).
 
-The data used in this tutorial is the concatenated alignment generated before `ATP6_COI_CytB_ND5.nex`. The first step will be to modify the partition information in your text editor. From the previous tutorial, we have a MrBayes block at the end of our file. We will keep this block, but make it invisible to BEAST2 by putting it in square brackets:
+Keep your `phylo` environment active and let's build the special version of
+IQ-TREE. In your working directory, we will set this up with the following
+commands:
 
-```
-[begin mrbayes;
-  charset ATP6_COI = 1 - 681  682 - 2226;
-  charset CYTB_ND5 = 2227 - 3366  3367 - 5187;
-
-  Partition ModelFinder = 2:ATP6_COI, CYTB_ND5;
-  set partition=ModelFinder;
-
-  set autoclose=yes;
-
-  lset applyto=(1) nst=6 rates=invgamma;
-  lset applyto=(2) nst=6 rates=invgamma;
-  prset applyto=(all) ratepr=variable brlensp=unconstrained:Exp(100.0) shapepr=exp(1.0) tratiopr=beta(2.0,1.0);
-  unlink statefreq=(all) revmat=(all) shape=(all) pinvar=(all) tratio=(all);
-  mcmc ngen=20000 printfreq=100 samplefreq=100 nchains=4 nruns=2 savebrlens=yes [temp=0.11];
-  sump relburnin=yes [no] burninfrac=0.25 [2500];
-  sumt relburnin=yes [no] burninfrac=0.25 [2500] contype=halfcompat [allcompat];
-end;]
-```
-BEAST2 has a very limited set of substitution models, much like MrBayes, so we will use the information from the ModelFinder results from the third analysis (with `-mset mrbayes`). Now add a new block after the MrBayes block with just the information about the partitions, like this:
-
-```
-begin sets;
-
-  charset ATP6_COI = 1 - 681  682 - 2226;
-  charset CYTB_ND5 = 2227 - 3366  3367 - 5187;
-
-
-end;
-
+```bash
+git clone https://github.com/iqtree/paml.git
+make -C paml/src mcmctree
 ```
 
-Save it as `FelidaeBEAST.nex`. Now we want to create **BEAST**'s command file which is a `*.xml` file. This is done using the program **BEAUti**.
+In the commands below, replace `/path/to/paml/src/mcmctree` with the actual
+path to that file.
 
-Open **BEAUti** from the BEAST2 folder, and import the alignment. To do so, click on **"File"** and click on **"Import Alignment"**. Find your alignment file called `FelidaeBEAST.nex` and import it. The BEAUti window should then look as shown in the screenshot below.
+You'll also need Tracer, which we haven't installed yet. Install it to your
+conda environment with:
 
-<p align="center"><img src="./Beast1.png" alt="Beast1" width="800"></p>
-
-The BEAUti interface has six different tabs, of which (at the top of the window) the first one "Partitions" is currently selected. First you need to specify settings regarding the partitioning in the currently open tab. 
-
-Select the 2 partitions rows and click on **Link Trees** and **Link Clock Models** near the top of the BEAUti window. This will force BEAST2 to use all partitions together to infer a tree or a clock model. However, we will let BEAST2 use a separate substitution model for the two partitions. In effect this means we believe the two partitions are evolving at their own mutation rates between nucleotides, but that they are evolving along the same tree at the same speed.
-
-The settings in the **Partitions** tab are now complete. Now remember the result from *ModelFinder* in your IQTREE analysis for each partition. These are the "Substitution Models" we want to set. I will copy it again here:
-
-```
-#nexus
-begin sets;
-  charset ATP6_COI = 1 - 681  682 - 2226;
-  charset CYTB_ND5 = 2227 - 3366  3367 - 5187;
-  charpartition mymodels =
-    GTR+F+I+G4: ATP6_COI,
-    GTR+F+I+G4: CYTB_ND5;
-end;
+```bash
+conda install bioconda::tracer
 ```
 
-Click on the **Site Model** tab next. In this tab we can specify the substitution models for all our partitions. This is a crucial step for our analysis to run well, so please pay extra attention.
+## 1. Root the nuclear ML tree
 
-Select the **ATP6_COI** partition in the panel at the left. In front of the **Subst Model** click on the drop menu and choose `GTR`. To choose the `+G` option in our model, look for **Gamma Category Count** and write `4` in front of it in the empty space. Now to apply the `+I` option in the model, look for **Proportion Invariant** option, insert an initial value of `0.1` in the empty space and click on the **estimate** box.
+Dating a tree requires it is rooted on the outgroup. We will do this with
+ape in R, which you used in the visualization tutorial. We will root the
+tree on the branch leading to the outgroup *Cossus cossus*. The non-butterfly
+taxa include several moth lineages, so the root is not necessarily the split
+between all butterflies and all non-butterflies.
 
-Now you should have something like this:
+Start R with the `R` command, then use the following code to root the tree:
 
-<p align="center"><img src="./Beast3.png" alt="Beast3" width="800"></p>
+```r
+library(ape)
+tree <- read.tree("tree_inference.treefile")
+outgroup <- c("Cossus_cossus.GCA_965117205.1")
+tree <- root(tree, outgroup = outgroup, resolve.root = TRUE)
+```
 
-Do this carefully for the other partition also.
+You can see the rooted tree by plotting it:
 
-Next, click on the **Clock Model** tab. From the drop-down menu choose the `Optimised Relaxed Clock` model. Exactly which relaxed clock model will be defined in the next tab. Now you should see something like this:
+```r
+plot(tree, cex = 0.6)
+```
 
-<p align="center"><img src="./Beast4.png" alt="Beast4" width="800"></p>
+If the rooting looks good, save it for input into IQ2MC:
 
-In some cases you will not see `Optimised Relaxed Clock` as an option. This is a small bug in the program that can be fixed by going to the `File` menu in **BEAUTi** and click on `Manage Packages`. Find **ORC** in the list of packages and click on `Install/Upgrade`. Now you should see the option `Optimised Relaxed Clock`.
+```r
+write.tree(tree, file = "papilionoidea_rooted.treefile")
+```
 
-Follow by clicking on the **Priors** tab. This tab has **a lot** of information in it! How does one choose the right priors? For the most part we will rely on the default priors, but some of them we have to change. From the drop-down menu in front of the **Tree.t:ATP_COI** *prior*, select the `Birth Death Model`. By doing so we add a parameter to the model for the extinction rate. If we would choose the alternative Yule model (Yule 1925), we would assume that no extinction has ever occurred. As this seems rather unrealistic, the birth-death model (Gernhard 2008) is in most cases the more appropriate choice. We can also choose which relaxed clock model we want to use. The default is the lognormal (**ORCRates.c:ATP6_COI** = `Log Normal`), which is the model we would like to use:
+## 2. Prepare the approximate likelihood
 
-<p align="center"><img src="./Beast5.png" alt="Beast5" width="800"></p>
+Now we will use IQ-TREE to produce the gradient and Hessian for the
+approximate likelihood calculation. We will use the concatenated
+alignment and model scheme output by our IQ-TREE run so that these
+match the input sequences and models used for inferring the tree:
 
-Now at the bottom of the *priors* list you have the possibility of creating new priors by clicking on **Add Prior**. In order to estimate times of divergence, we need to add some information about time for at least one node. This is known as *calibration*, and can be based on fossil information, or on previous studies that have estimated a time of divergence for our clade of interest, so-called *secondary calibrations*. We will use secondary calibrations from a [published paper](https://bmcbiol.biomedcentral.com/articles/10.1186/1741-7007-10-12) on mammalian divergence times, specifically their [Table 2](https://bmcbiol.biomedcentral.com/articles/10.1186/1741-7007-10-12/tables/2):
+```bash
+iqtree -s tree_inference.conaln -p tree_inference.best_scheme.nex \
+  -te papilionoidea_rooted.treefile --dating mcmctree \
+  --prefix papilionoidea
+```
 
-| Constraint # | Clade | mean Age (95% confidence) |
-|---|---|---|
-| 1 | Root of our tree | 52.9 (48.1 to 57.5) My |
-| 2 | Crown age of Felidae | 16.3 (15.3 to 17.4) My |
+`-te` fixes the rooted topology; `-p` uses the selected partition scheme and
+its substitution models. There are a few other options specific to IQ2MC that
+we leave to their defaults, for instance, setting the length of the MCMC, the
+burn in, birth/death rates, and if branches can have independent clock rates.
+[Take a look at the documentation](https://iqtree.github.io/doc/Dating) for
+information on these, as they may need adjusting in your own data.
 
-Now click on **Add Prior**. A pop-up window should open asking **Which prior do you want to add**. Choose **MRCA prior** and click `OK`. In **Taxon set label** write `Rootoftree`for the first constraint. It is enough to add two species that together define the root of the tree, i.e. an outgroup taxon and an ingroup taxon. Select one of each and hit the arrows toward right empty space. You should have something like this:
+You should get these files:
 
-<p align="center"><img src="./Beast6.png" alt="Beast6" width="800"></p>
+- `papilionoidea.mcmctree.hessian`: approximate-likelihood information.
+- `papilionoidea.rooted.nwk`: the tree in the ordering used by the Hessian.
+- `papilionoidea.dummy.phy`: the dummy alignment required by MCMCtree.
+- `papilionoidea.mcmctree.ctl`: the MCMCtree control file.
 
-Now hit **OK** and create the next constraint named `Felidaecrown`. For this constraint you need again two taxa that define the node leading to the crown clade. *Which taxa could they be?* Use your results from previous analyses to determine this. Now you should have your two constraints. 
+Check the log on your screen for errors and inspect the control file. The
+paths in it are relative to the directory in which MCMCtree is run. Keep the
+IQ-TREE-generated rooted tree and Hessian together: their taxon/branch
+ordering must match.
 
-The next step is choosing which kind of calibration prior to use. The paper cited above gives the node ages as means with a 95% confidence interval. For practice, we will define the **Rootoftree.prior** as a uniform prior, with a minimum and maximum based on the 95% confidence interval. In contrast, we will define the **Felidaecrown.prior** as a normally distributed prior, with the reported mean and a standard deviation that takes the 95% confidence interval into account. 
+## 3. Add calibrations
 
-Now for the `Rootoftree` constraint, click on the drop-down menu in front of it and choose **Uniform** distribution. Then click on the triangle at the left of the **Rootoftree.prior** to choose the ages. Here the **Lower** will be `48.1` and the **Upper** `57.5`. For the **Felidaecrown.prior** choose a **Normal** distribution. In this distribution you have 2 parameters, **Mean** and **Sigma**. **Mean** parameter is the mean age and the **Sigma** parameter defines the standard deviation of the distribution. The third parameter **Offset** we leave as 0. Here we will use the mean age for Felidae from the above paper, which is reported as `16.3` My. In order to capture the error in this estimate, we will vary the **Sigma** parameter until we get values for the 95% confidence interval that approximate the error in the table above (*15.3 to 17.4 My*). Try different values and see their effect on the confidence intervals! 
+We will define one time unit as **100 million years** as IQ2MC wants our timings
+to mostly be coded in values smaller than 10 and we expect our tree to span around
+125 million years. To date our tree, we will use secondary calibrations based on
+inferred divergence times for the following clades:
 
-Now you should have this:
+| Node | Mean (My) | 95% interval (My) | Uniform-like label | Normal label |
+|---|---:|---:|---|---|
+| Root: Cossus versus the remaining taxa | 111 | 99–124 | `'B(0.99,1.24)'` | `'SN(1.11,0.0638,0)'` |
+| Papilionoidea | 98 | 87–110 | `'B(0.87,1.10)'` | `'SN(0.98,0.0587,0)'` |
+| Pieridae | 52 | 40–64 | `'B(0.40,0.64)'` | `'SN(0.52,0.0612,0)'` |
+| Nymphalidae | 69 | 59–80 | `'B(0.59,0.80)'` | `'SN(0.69,0.0536,0)'` |
+
+The two right-most columns describe the way the priors can be set on these
+calibrations in MCMCtree:
+
+- `B(lower,upper)` is uniform-like: its density is flat between the
+  bounds, with 2.5% probability in each tail by default. It does not
+  encode the reported mean.
+- `SN(mean,SD,0)` is a normal distribution: zero is the skew parameter.
+  We approximated each standard deviation as `(upper - lower) / 3.92`,
+  then divided by 100.
+
+For other calibration distributions and their syntax, see the
+[MCMCtree calibration documentation](https://github.com/abacus-gene/paml/wiki/MCMCtree#calibrations-how-to-set-up-node-age-constraints).
+
+These are not necessarily the same as the distributions reported in the
+study we get the calibrations from. For each clade, choose whether you
+will use a Uniform-like or Normal prior, you can use a different one for
+each clade. Which you choose will impact the outcome, so often the decision
+depends on whether you want to put higher probability on the mean estimate
+(Normal) or not (Uniform).
+
+Open `papilionoidea.rooted.nwk` in a plain text editor. We recommend
+using one that wraps lines and you can insert the cursor anywhere in
+the text, so your computer's graphical text editor is probably better
+than `nano` for this. Identify each node on your rooted tree, and
+manually insert its quoted label immediately after the closing
+parenthesis for that node. For example, a clade written as `((tip1,tip2),tip3)`
+would become either `((tip1,tip2),tip3)'B(0.40,0.64)'` or
+`((tip1,tip2),tip3)'SN(0.52,0.0612,0)'` if it represents the Pieridae
+crown. Add your chosen root label after the final closing parenthesis,
+before the semicolon. For example, using the uniform-like root prior:
+
+```text
+...))'B(0.99,1.24)';
+```
+
+> **[IMAGE PLACEHOLDER — REPLACE ME]** Annotated tree in a text editor,
+> highlighting a crown calibration and the root calibration.
+
+The ellipsis and tip names are placeholders, not text to insert. Apply the
+labels to the actual nodes, not necessarily to the example pair of tips.
+
+Preserve any header lines and all tip and branch ordering so the tree
+remains matched to the Hessian. If a calibrated node already has a label,
+replace that label. The generated MCMCtree tree should not have branch
+lengths; the rooted ML tree used in the IQ-TREE step retains them.
+
+In `papilionoidea.mcmctree.ctl`, comment out the generated `RootAge = <1.0`
+line by placing `*` at its start: the root is now calibrated in the tree
+instead.
+
+## 4. Run a prior-only analysis and two independent chains
+
+MCMCtree writes some files with fixed names, so use separate directories.
+From the analysis directory, copy the **four** generated files, including
+your edited tree and control file, into each directory:
+
+```bash
+mkdir prior run1 run2
+cp papilionoidea.mcmctree.hessian papilionoidea.rooted.nwk papilionoidea.dummy.phy papilionoidea.mcmctree.ctl prior/
+cp papilionoidea.mcmctree.hessian papilionoidea.rooted.nwk papilionoidea.dummy.phy papilionoidea.mcmctree.ctl run1/
+cp papilionoidea.mcmctree.hessian papilionoidea.rooted.nwk papilionoidea.dummy.phy papilionoidea.mcmctree.ctl run2/
+```
+
+In `prior/papilionoidea.mcmctree.ctl`, set `usedata = 0`. Keep `usedata = 2`
+in both posterior-run control files. Give the three runs different positive
+integer `seed` values, for example 101, 102, and 103.
+
+First run the prior-only analysis from its directory, using the full path
+to the executable:
+
+```bash
+cd prior
+/path/to/paml/src/mcmctree papilionoidea.mcmctree.ctl
+```
+
+Then, run the two posterior chains from their own directories:
+
+```bash
+cd ..
+cd run1
+/path/to/paml/src/mcmctree papilionoidea.mcmctree.ctl
+cd ../run2
+/path/to/paml/src/mcmctree papilionoidea.mcmctree.ctl
+cd ..
+```
+
+It should take a few minutes for each run. Once these are done, we can move
+on to inspecting the traces.
+
+## 5. Inspect and interpret the results
+
+Open the two run `papilionoidea.mcmctree.log` files in Tracer. Examine
+You can open both in the same Tracer window and see how the MCMC chains
+and estimated divergence times and CIs compare, as well as if the ESS
+values are acceptable (generally larger than 200):
 
 
-<p align="center"><img src="./Beast7.png" alt="Beast7" width="800"></p>
+> **[IMAGE PLACEHOLDER — REPLACE ME]** Tracer view comparing the two
+> posterior chains, with trace plots and ESS values.
 
-Continue to the **MCMC** tab, where you can specify the run length. This analysis will require millions of **generations** before the MCMC chain reaches full stationarity (converges). The default is 10,000,000 generations, which should suffice for our analysis. We will thus not change anything on this tab.
+If you find that the runs aren't converging, you may need to run the
+chain for longer. Looking at the Trace, see if you might need to increase
+the burn-in (if it ends before the trace plateaus) or if you should mainly
+increase the samples.
 
-Now click on **File** > **Save**, choose the folder you want, name your file `Felidae.xml` and click on **Save** again. Keep **BEAUTi** open for the moment. Now we will run the `Felidae.xml` file. Open **BEAST** and click on **Choose File**. You should be seeing this:
+Each run will generate a `FigTree.tre` file. Open each in FigTree. You
+can turn on node bars and set them to show the node ages and CIs. You can
+also enable the scale axis (you may need to set it to be reversed to show
+the valuse in Mya). Remember, your branches are scaled in units of 100 million
+years.
 
-<p align="center"><img src="./Beast10.png" alt="Beast10" width="800"></p>
-
-Click on the **Run** button to check that the file is configured correctly and that it runs in BEAST. This analysis would take about two hours, depending on the processor and memory of your computer so once you see that it runs, click on **Quit**.
-
-Instead of running this analysis on our computers, we will upload our `Felidae.xml` file onto a server and run it there. One such server is the [CIPRES portal](https://www.phylo.org/portal2/login!input.action). Create a user account, and upload your file into the **Data** folder. Go to the **Tasks** folder and click on the `Create New Task` button. Write `Felidae` in the **Description** box, select `Felidae.xml` in `Select Input Data`, under `Select Tool` choose **BEAST2 on ACCESS (2.7.6) - Bayesian Evolutionary Analysis by Sampling Trees - run on XSEDE**, and finally for the **Input Parameters** select the following:
-
-<p align="center"><img src="./CIPRES1.png" alt="CIPRES1" width="800"></p>
-
-Once you have saved the parameters (and clicked on **OK** twice), you are ready to run your analysis on CIPRES, just click on `Save and Run Task`, and wait for an email to tell you it is ready! It'll take about one hour.
-
-While you're waiting for the BEAST run to complete, start working with Tutorial 7 [Tree Manipulation](../TreeManipulation/).
-
-## Analysing the results with Tracer
-
-After the **BEAST** analysis is completed we will check the trace files in **Tracer**. Open **Tracer**. Drag and drop the log file created by BEAST named `*.log` into the empty space at the left side of **Tracer**'s window. You should see a trace somehow similar to this:
-
-<p align="center"><img src="./Tracer.png" alt="Tracer" width="800"></p>
-
-How does the run look? Is it enough or do we have to run the analysis for longer? Check the trace for different parameters. Did all of them converge? Is there any parameter which is still not well sampled?
-
-
-## Obtaining the Time-tree
-
-Now we will use the program **TreeAnnotator** from BEAST2 package. Open the program. For the **Burn in percentage** write `10`, **Target tree type** does not need to be changed, but choose `Mean heights` for **Node heights**. Then for **Input Tree File** choose the `Felidae-ATP6_COI.trees` file created by BEAST and for the **Output File** write `FelidaeTimes.tre`. Click on the box in front of **Low Memory**. You should have this now:
-
-<p align="center"><img src="./Tree.png" alt="Tree" width="800"></p>
-
-
-Now hit **Run**. When the analysis is finished, open your final `FelidaeTimes.tre` file in **FigTree**. Any surprises?
-
+> **[IMAGE PLACEHOLDER — REPLACE ME]** Dated tree in FigTree with node ages
+> and 95% intervals visible.
