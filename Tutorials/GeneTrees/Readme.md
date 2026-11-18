@@ -30,8 +30,6 @@ After a couple of minutes you should have a number of files in the folder you se
 
 <p align="center"><img src="./FigTree15trees.png" alt="15 trees" width="800"></p>
 
-~~Now, you run the following command to summarize the gene trees:~~
-
 If you can't figure out how to `cat` all the genetrees into a single file, this loop may work. I haven't tried it but you can if you want.
 
 ```
@@ -40,6 +38,8 @@ for file in outputs/gene_trees/*.treefile; do
     awk -v gene="$gene" '{ print "[" gene "] " $0 }' "$file" >> genes.treefile
 done
 ```
+
+~~Now, you run the following command to summarize the gene trees:~~
 
 The version of wASTRAL available on Conda actually is a bit bugged! You need an updated version, please download from the [ASTER releases page](https://github.com/chaoszhang/ASTER/releases) the version for your OS, extract and use the `wastral` file:
 
