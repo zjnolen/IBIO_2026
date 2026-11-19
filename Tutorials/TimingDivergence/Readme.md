@@ -85,7 +85,7 @@ iqtree -s tree_inference.conaln -p tree_inference.best_scheme.nex \
   --prefix papilionoidea
 ```
 
-`-te` fixes the rooted topology (if you do not use it IQ-TREE will infer a new tree); `-p` uses the selected partition scheme and its substitution models. There are a few other options specific to IQ2MC that we leave to their defaults, for instance, setting the length of the MCMC, the burn in, birth/death rates, and if branches can have independent clock rates. [Take a look at the documentation](https://iqtree.github.io/doc/Dating) for information on these, as they may need adjusting in your own data.
+`-s` is the alignment (supermatrix/folder containing your files) corresponding to your tree; `-te` fixes the rooted topology (if you do not use it IQ-TREE will infer a new tree); `-p` uses the selected partition scheme and its substitution models. There are a few other options specific to IQ2MC that we leave to their defaults, for instance, setting the length of the MCMC, the burn in, birth/death rates, and if branches can have independent clock rates. [Take a look at the documentation](https://iqtree.github.io/doc/Dating) for information on these, as they may need adjusting in your own data.
 
 You should get these files:
 
