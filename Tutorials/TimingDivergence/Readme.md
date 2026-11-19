@@ -146,8 +146,7 @@ before the semicolon. For example, using the uniform-like root prior:
 ...))'B(0.99,1.24)';
 ```
 
-> **[IMAGE PLACEHOLDER — REPLACE ME]** Annotated tree in a text editor,
-> highlighting a crown calibration and the root calibration.
+![Annotated tree in a text editor, highlighting a crown calibration and the root calibration.](Calibrated_newick.png)
 
 The ellipsis and tip names are placeholders, not text to insert. Apply the
 labels to the actual nodes, not necessarily to the example pair of tips.
@@ -206,8 +205,8 @@ Open the two run `papilionoidea.mcmctree.log` files in Tracer. You can open both
 and estimated divergence times and CIs compare, as well as if the ESS
 values are acceptable (generally larger than 200):
 
-> **[IMAGE PLACEHOLDER — REPLACE ME]** Tracer view comparing the two
-> posterior chains, with trace plots and ESS values.
+![Tracer Trace 1](Trace1.png)
+![Tracer Trace 2](Trace2.png)
 
 If you find that the runs aren't converging, you may need to run the
 chain for longer. Looking at the trace, see if you might need to increase
@@ -220,7 +219,6 @@ also enable the scale axis (you may need to set it to be reversed to show
 the valuse in Mya). Remember, your branches are scaled in units of 100 million
 years.
 
-> **[IMAGE PLACEHOLDER — REPLACE ME]** Dated tree in FigTree with node ages
-> and 95% intervals visible.
+![Dated tree in FigTree with node ages and 95% intervals visible.](Figtree.png)
 
 That's it! We did it! A dated tree is valuable in and of itself, for telling us how old the different clades and taxa are. It also opens up a lot of downstream analyses, including ancestral state reconstructions, biogeographic analyses, and more!
