@@ -24,17 +24,10 @@ in [IQ-TREE's version of PAML](https://github.com/iqtree/paml) which includes
 modifications for IQ-TREE's version of the MCMCtree configuration file (or
 control file).
 
-Keep your `phylo` environment active and let's build the special version of
-IQ-TREE. In your working directory, we will set this up with the following
-commands:
-
-```bash
-git clone https://github.com/iqtree/paml.git
-make -C paml/src mcmctree
-```
-
-In the commands below, replace `/path/to/paml/src/mcmctree` with the actual
-path to that file.
+Download the [Linux x86_64 release for IQ-TREE's modified version of PAML](https://github.com/iqtree/paml/releases/download/Latest/paml-4.10.8.iq2mc-linux-x86_64.tar.gz).
+Once downloaded, extract it and you can find the `mcmctree` binary in the
+bin folder. In the commands below, replace `/path/to/paml/bin/mcmctree` with
+the actual path to that file.
 
 You'll also need Tracer, which we haven't installed yet. Install it to your
 conda environment with:
