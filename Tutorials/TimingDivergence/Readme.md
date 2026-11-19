@@ -49,7 +49,7 @@ Dating a tree requires it is rooted on the outgroup. We will do this with
 ape in R, which you used in the visualization tutorial. We will root the
 tree on the branch leading to the outgroup *Cossus cossus*. The non-butterfly
 taxa include several moth lineages, so the root is not necessarily the split
-between all butterflies and all non-butterflies.
+between all butterflies and all non-butterflies. If you have not yet inspected it, have a look at the topology of [this tree](https://www.pnas.org/doi/10.1073/pnas.1907847116).
 
 Start R with the `R` command, then use the following code to root the tree:
 
@@ -113,7 +113,7 @@ inferred divergence times for the following clades:
 
 | Node | Mean (My) | 95% interval (My) | Uniform-like label | Normal label |
 |---|---:|---:|---|---|
-| Root: Cossus versus the remaining taxa | 111 | 99–124 | `'B(0.99,1.24)'` | `'SN(1.11,0.0638,0)'` |
+| Root: *Cossus* versus the remaining taxa | 111 | 99–124 | `'B(0.99,1.24)'` | `'SN(1.11,0.0638,0)'` |
 | Papilionoidea | 98 | 87–110 | `'B(0.87,1.10)'` | `'SN(0.98,0.0587,0)'` |
 | Pieridae | 52 | 40–64 | `'B(0.40,0.64)'` | `'SN(0.52,0.0612,0)'` |
 | Nymphalidae | 69 | 59–80 | `'B(0.59,0.80)'` | `'SN(0.69,0.0536,0)'` |
