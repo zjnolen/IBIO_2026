@@ -1,4 +1,4 @@
-# Tutorial 8: Dating our tree with IQ2MC
+# Tutorial 8: Dating the butterfly tree with IQ2MC 🦋
 
 In this tutorial, we will work on dating your tree inferred in the
 [maximum-likelihood tree tutorial](../MaximumLikelihood/Readme.md). We will
@@ -14,9 +14,9 @@ which are now in units of substitutions per site, will be converted into units
 of time. This is done with calibrations, portions of the tree you have an estimated
 timing of divergence, either from fossils or other trees calibrated with such
 information. We will use the latter of these, secondary calibrations from published
-divergence-time estimates (Kawahara et al. 2019; *PNAS*).
+divergence-time estimates ([Kawahara et al. 2019](https://www.pnas.org/doi/10.1073/pnas.1907847116); *PNAS*).
 
-## Extra things we'll need
+## Extra things we'll need 🛠️
 
 Most of what we need is already in our conda environment, but we will need
 two more tools. To use IQ2MC, we need a special version of MCMCtree distributed
@@ -43,11 +43,13 @@ conda environment with:
 conda install bioconda::tracer
 ```
 
-## 1. Root the nuclear ML tree
+## 1. Root the nuclear ML tree 🪾
 
 Dating a tree requires it to be rooted on the outgroup. We will do this with
-ape in R, which you used in the visualization tutorial. We will root the
-tree on the branch leading to the outgroup *Cossus cossus*. Note that the non-butterfly taxa include several moth lineages, so the root is not necessarily the split between all butterflies and all non-butterflies.
+ape in R, which you used in the visualization tutorial.
+
+We will root the
+tree on the branch leading to the outgroup *Cossus cossus*. Note that the non-butterfly taxa include several moth lineages, so the root is not necessarily the split between all butterflies and all non-butterflies. If you have not yet inspected it, have a look at the topology of [this tree](https://www.pnas.org/doi/10.1073/pnas.1907847116).
 
 Start R with the `R` command, then use the following code to root the tree:
 
@@ -70,7 +72,7 @@ If it looks like it is rooted in the correct place, save the tree for input into
 write.tree(tree, file = "papilionoidea_rooted.treefile")
 ```
 
-## 2. Prepare the approximate likelihood
+## 2. Prepare the approximate likelihood 💻
 
 Now we will use IQ-TREE to produce the gradient and Hessian for the
 approximate likelihood calculation. We will use the concatenated
@@ -97,7 +99,7 @@ paths in it are relative to the directory in which MCMCtree is run. Keep the
 IQ-TREE-generated rooted tree and Hessian together: their taxon/branch
 ordering must match.
 
-## 3. Add calibrations
+## 3. Add calibrations 🦋
 
 Calibration points are the ages (and potential probability distributions of the same) of specific nodes in the tree. To run IQ2MC we will have to add these manually.
 
@@ -105,7 +107,7 @@ We will define one time unit as **100 million years**, meaning that if we write 
 
 | Node | Mean (My) | 95% interval (My) | Uniform-like label | Normal label |
 |---|---:|---:|---|---|
-| Root: Cossus versus the remaining taxa | 111 | 99–124 | `'B(0.99,1.24)'` | `'SN(1.11,0.0638,0)'` |
+| Root: *Cossus* versus the remaining taxa | 111 | 99–124 | `'B(0.99,1.24)'` | `'SN(1.11,0.0638,0)'` |
 | Papilionoidea | 98 | 87–110 | `'B(0.87,1.10)'` | `'SN(0.98,0.0587,0)'` |
 | Pieridae | 52 | 40–64 | `'B(0.40,0.64)'` | `'SN(0.52,0.0612,0)'` |
 | Nymphalidae | 69 | 59–80 | `'B(0.59,0.80)'` | `'SN(0.69,0.0536,0)'` |
@@ -159,7 +161,7 @@ In `papilionoidea.mcmctree.ctl`, comment out the generated `RootAge = <1.0`
 line by placing `*` at its start: the root is now calibrated in the tree
 instead.
 
-## 4. Run a prior-only analysis and two independent chains
+## 4. Run a prior-only analysis and two independent chains ⛓️‍💥⛓️‍💥
 
 MCMCtree writes some files with fixed names, so use separate directories.
 From the analysis directory, copy the **four** generated files, including
@@ -198,7 +200,7 @@ cd ..
 It should take a few minutes for each run. Once these are done, we can move
 on to inspecting the traces.
 
-## 5. Inspect and interpret the results
+## 5. Inspect and interpret the results 📊
 
 Open the two run `papilionoidea.mcmctree.log` files in Tracer. You can open both in the same Tracer window and see how the MCMC chains
 and estimated divergence times and CIs compare, as well as if the ESS
