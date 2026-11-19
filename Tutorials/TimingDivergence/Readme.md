@@ -1,4 +1,4 @@
-# Tutorial 8: Dating the butterfly tree with IQ2MC
+# Tutorial 8: Dating the butterfly tree with IQ2MC 🦋
 
 In this tutorial, we will work on dating your tree inferred in the
 [maximum-likelihood tree tutorial](../MaximumLikelihood/Readme.md). We will
@@ -14,9 +14,9 @@ which are now in units of substitutions per site, will be converted into units
 of time. This is done with calibrations, portions of the tree you have an estimated
 timing of divergence, either from fossils or other trees calibrated with such
 information. We will use the latter of these, secondary calibrations from published
-divergence-time estimates (Kawahara et al. 2019; *PNAS*).
+divergence-time estimates ([Kawahara et al. 2019](https://www.pnas.org/doi/10.1073/pnas.1907847116); *PNAS*).
 
-## Extra things we'll need
+## Extra things we'll need 🛠️
 
 Most of what we need is already in our conda environment, but we will need
 two more tools. To use IQ2MC, we need a special version of MCMCtree distributed
@@ -43,7 +43,7 @@ conda environment with:
 conda install bioconda::tracer
 ```
 
-## 1. Root the nuclear ML tree
+## 1. Root the nuclear ML tree 🪾
 
 Dating a tree requires it is rooted on the outgroup. We will do this with
 ape in R, which you used in the visualization tutorial. We will root the
@@ -72,7 +72,7 @@ If the rooting looks good, save it for input into IQ2MC:
 write.tree(tree, file = "papilionoidea_rooted.treefile")
 ```
 
-## 2. Prepare the approximate likelihood
+## 2. Prepare the approximate likelihood 💻
 
 Now we will use IQ-TREE to produce the gradient and Hessian for the
 approximate likelihood calculation. We will use the concatenated
@@ -104,7 +104,7 @@ paths in it are relative to the directory in which MCMCtree is run. Keep the
 IQ-TREE-generated rooted tree and Hessian together: their taxon/branch
 ordering must match.
 
-## 3. Add calibrations
+## 3. Add calibrations 🦋
 
 We will define one time unit as **100 million years** as IQ2MC wants our timings
 to mostly be coded in values smaller than 10 and we expect our tree to span around
@@ -168,7 +168,7 @@ In `papilionoidea.mcmctree.ctl`, comment out the generated `RootAge = <1.0`
 line by placing `*` at its start: the root is now calibrated in the tree
 instead.
 
-## 4. Run a prior-only analysis and two independent chains
+## 4. Run a prior-only analysis and two independent chains ⛓️‍💥⛓️‍💥
 
 MCMCtree writes some files with fixed names, so use separate directories.
 From the analysis directory, copy the **four** generated files, including
@@ -207,7 +207,7 @@ cd ..
 It should take a few minutes for each run. Once these are done, we can move
 on to inspecting the traces.
 
-## 5. Inspect and interpret the results
+## 5. Inspect and interpret the results 📊
 
 Open the two run `papilionoidea.mcmctree.log` files in Tracer. Examine
 You can open both in the same Tracer window and see how the MCMC chains
