@@ -58,6 +58,7 @@ library(ape)
 tree <- read.tree("tree_inference.treefile")
 outgroup <- c("Cossus_cossus.GCA_965117205.1")
 tree <- root(tree, outgroup = outgroup, resolve.root = TRUE)
+tree$node.label <- NULL
 ```
 
 You can see the rooted tree by plotting it:
