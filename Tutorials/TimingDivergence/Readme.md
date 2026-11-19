@@ -106,7 +106,7 @@ Calibration points are the ages (and potential probability distributions of the 
 We will define one time unit as **100 million years**, meaning that if we write **1** on a node it is 100 million years old. This is because IQ2MC wants our timings to mostly be coded in values smaller than 10, and we expect our tree to span around 125 million years. To date our tree, we will use secondary calibrations based on inferred divergence times in previously published dated phylogenies. This is a useful way to do things if you do not have fossils, although you are of course relying on those previous authors having done a good job. These are our suggested calibration points:
 
 | Node | Mean (My) | 95% interval (My) | Uniform-like label | Normal label |
-|---|---:|---:|---|---|
+| --- | ---: | ---: | --- | --- |
 | Root: *Cossus* versus the remaining taxa | 111 | 99–124 | `'B(0.99,1.24)'` | `'SN(1.11,0.0638,0)'` |
 | Papilionoidea | 98 | 87–110 | `'B(0.87,1.10)'` | `'SN(0.98,0.0587,0)'` |
 | Pieridae | 52 | 40–64 | `'B(0.40,0.64)'` | `'SN(0.52,0.0612,0)'` |
