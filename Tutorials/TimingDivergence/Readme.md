@@ -1,4 +1,4 @@
-# Tutorial 8: Dating the butterfly tree with IQ2MC
+# Tutorial 8: Dating our tree with IQ2MC
 
 In this tutorial, we will work on dating your tree inferred in the
 [maximum-likelihood tree tutorial](../MaximumLikelihood/Readme.md). We will
@@ -45,11 +45,9 @@ conda install bioconda::tracer
 
 ## 1. Root the nuclear ML tree
 
-Dating a tree requires it is rooted on the outgroup. We will do this with
+Dating a tree requires it to be rooted on the outgroup. We will do this with
 ape in R, which you used in the visualization tutorial. We will root the
-tree on the branch leading to the outgroup *Cossus cossus*. The non-butterfly
-taxa include several moth lineages, so the root is not necessarily the split
-between all butterflies and all non-butterflies.
+tree on the branch leading to the outgroup *Cossus cossus*. Note that the non-butterfly taxa include several moth lineages, so the root is not necessarily the split between all butterflies and all non-butterflies.
 
 Start R with the `R` command, then use the following code to root the tree:
 
@@ -66,7 +64,7 @@ You can see the rooted tree by plotting it:
 plot(tree, cex = 0.6)
 ```
 
-If the rooting looks good, save it for input into IQ2MC:
+If it looks like it is rooted in the correct place, save the tree for input into IQ2MC:
 
 ```r
 write.tree(tree, file = "papilionoidea_rooted.treefile")
@@ -77,7 +75,7 @@ write.tree(tree, file = "papilionoidea_rooted.treefile")
 Now we will use IQ-TREE to produce the gradient and Hessian for the
 approximate likelihood calculation. We will use the concatenated
 alignment and model scheme output by our IQ-TREE run so that these
-match the input sequences and models used for inferring the tree:
+match the input sequences and models used for inferring the tree (it also means we don't need to spend time running IQ-TREE modelfinding again, which will be really neat when working with larger datasets):
 
 ```bash
 iqtree -s tree_inference.conaln -p tree_inference.best_scheme.nex \
@@ -85,12 +83,7 @@ iqtree -s tree_inference.conaln -p tree_inference.best_scheme.nex \
   --prefix papilionoidea
 ```
 
-`-te` fixes the rooted topology; `-p` uses the selected partition scheme and
-its substitution models. There are a few other options specific to IQ2MC that
-we leave to their defaults, for instance, setting the length of the MCMC, the
-burn in, birth/death rates, and if branches can have independent clock rates.
-[Take a look at the documentation](https://iqtree.github.io/doc/Dating) for
-information on these, as they may need adjusting in your own data.
+`-te` fixes the rooted topology (if you do not use it IQ-TREE will infer a new tree); `-p` uses the selected partition scheme and its substitution models. There are a few other options specific to IQ2MC that we leave to their defaults, for instance, setting the length of the MCMC, the burn in, birth/death rates, and if branches can have independent clock rates. [Take a look at the documentation](https://iqtree.github.io/doc/Dating) for information on these, as they may need adjusting in your own data.
 
 You should get these files:
 
@@ -106,10 +99,9 @@ ordering must match.
 
 ## 3. Add calibrations
 
-We will define one time unit as **100 million years** as IQ2MC wants our timings
-to mostly be coded in values smaller than 10 and we expect our tree to span around
-125 million years. To date our tree, we will use secondary calibrations based on
-inferred divergence times for the following clades:
+Calibration points are the ages (and potential probability distributions of the same) of specific nodes in the tree. To run IQ2MC we will have to add these manually.
+
+We will define one time unit as **100 million years**, meaning that if we write **1** on a node it is 100 million years old. This is because IQ2MC wants our timings to mostly be coded in values smaller than 10, and we expect our tree to span around 125 million years. To date our tree, we will use secondary calibrations based on inferred divergence times in previously published dated phylogenies. This is a useful way to do things if you do not have fossils, although you are of course relying on those previous authors having done a good job. These are our suggested calibration points:
 
 | Node | Mean (My) | 95% interval (My) | Uniform-like label | Normal label |
 |---|---:|---:|---|---|
@@ -118,7 +110,7 @@ inferred divergence times for the following clades:
 | Pieridae | 52 | 40–64 | `'B(0.40,0.64)'` | `'SN(0.52,0.0612,0)'` |
 | Nymphalidae | 69 | 59–80 | `'B(0.59,0.80)'` | `'SN(0.69,0.0536,0)'` |
 
-The two right-most columns describe the way the priors can be set on these
+ The two right-most columns describe the way the priors can be set on these
 calibrations in MCMCtree:
 
 - `B(lower,upper)` is uniform-like: its density is flat between the
@@ -134,8 +126,7 @@ For other calibration distributions and their syntax, see the
 These are not necessarily the same as the distributions reported in the
 study we get the calibrations from. For each clade, choose whether you
 will use a Uniform-like or Normal prior, you can use a different one for
-each clade. Which you choose will impact the outcome, so often the decision
-depends on whether you want to put higher probability on the mean estimate
+each clade (in a real-world scenario you will have to carefully consider the prior knowledge to decide how to code the calibrations). Which you choose will impact the outcome, so often the decision depends on whether you want to put higher probability on the mean estimate
 (Normal) or not (Uniform).
 
 Open `papilionoidea.rooted.nwk` in a plain text editor. We recommend
@@ -162,7 +153,7 @@ labels to the actual nodes, not necessarily to the example pair of tips.
 Preserve any header lines and all tip and branch ordering so the tree
 remains matched to the Hessian. If a calibrated node already has a label,
 replace that label. The generated MCMCtree tree should not have branch
-lengths; the rooted ML tree used in the IQ-TREE step retains them.
+lengths.
 
 In `papilionoidea.mcmctree.ctl`, comment out the generated `RootAge = <1.0`
 line by placing `*` at its start: the root is now calibrated in the tree
@@ -209,17 +200,15 @@ on to inspecting the traces.
 
 ## 5. Inspect and interpret the results
 
-Open the two run `papilionoidea.mcmctree.log` files in Tracer. Examine
-You can open both in the same Tracer window and see how the MCMC chains
+Open the two run `papilionoidea.mcmctree.log` files in Tracer. You can open both in the same Tracer window and see how the MCMC chains
 and estimated divergence times and CIs compare, as well as if the ESS
 values are acceptable (generally larger than 200):
-
 
 > **[IMAGE PLACEHOLDER — REPLACE ME]** Tracer view comparing the two
 > posterior chains, with trace plots and ESS values.
 
 If you find that the runs aren't converging, you may need to run the
-chain for longer. Looking at the Trace, see if you might need to increase
+chain for longer. Looking at the trace, see if you might need to increase
 the burn-in (if it ends before the trace plateaus) or if you should mainly
 increase the samples.
 
@@ -231,3 +220,5 @@ years.
 
 > **[IMAGE PLACEHOLDER — REPLACE ME]** Dated tree in FigTree with node ages
 > and 95% intervals visible.
+
+That's it! We did it! A dated tree is valuable in and of itself, for telling us how old the different clades and taxa are. It also opens up a lot of downstream analyses, including ancestral state reconstructions, biogeographic analyses, and more!
