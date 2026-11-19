@@ -80,7 +80,7 @@ alignment and model scheme output by our IQ-TREE run so that these
 match the input sequences and models used for inferring the tree (it also means we don't need to spend time running IQ-TREE modelfinding again, which will be really neat when working with larger datasets):
 
 ```bash
-iqtree -s tree_inference.conaln -p tree_inference.best_scheme.nex \
+iqtree -s concat.fa -p tree_inference.best_scheme.nex \
   -te papilionoidea_rooted.treefile --dating mcmctree \
   --prefix papilionoidea
 ```
