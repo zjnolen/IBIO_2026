@@ -199,7 +199,7 @@ would combine the `.fna` files across species, then do the same for each gene's
 the unaligned nucleotide and protein sequences, respectively. Let's look at how
 that would look for BUSCO 306631at7088 in two species:
 
-**Hespeira comma's `306631at7088.fna`**:
+**Hesperia comma's `306631at7088.fna`**:
 
 ```text
 >306631at7088_58824_0:000347|FR990014.1:5036813-5092653|+
